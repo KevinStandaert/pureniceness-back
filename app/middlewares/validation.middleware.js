@@ -5,6 +5,6 @@ export default (sourceProperty, schema) => async (request, _, next) => {
     await schema.validateAsync(request[sourceProperty]);
     next();
   } catch (error) {
-    next(new ApiError(error.details[0].message, { httpStatus: 400 }));
+    next(new ApiError(error.message, { httpStatus: 400 }));
   }
 };
