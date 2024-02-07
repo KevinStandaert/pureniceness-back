@@ -19,6 +19,7 @@
  * @typedef {object} UserInput
  * @property {string} email - User email
  * @property {string} password - User password
+ * @property {string} passwordConfirm - User confirm password
  * @property {string} firstname - User firstname
  * @property {string} lastname - User lastname
  * @property {date} birthdate - User birthdate
