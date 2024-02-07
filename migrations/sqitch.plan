@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=pureniceness
+
+init 2024-02-07T14:33:00Z Cedric Jardon <cedric.jardon@oclock.school> # initialize database
