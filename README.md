@@ -6,13 +6,13 @@
 npm install
 ```
 
-## Fichier .env
+## File .env
 
 Copy the .env.example file and rename it to .env
 
 Replace the values of the environment variables with your own values
 
-## Fichier .sqitch.example.conf
+## File .sqitch.example.conf
 
 Copy the .sqitch.example.conf file and rename it to .sqitch.conf
 
@@ -24,7 +24,7 @@ Replace the values of variables with your own values
 npm run dev
 ```
 
-## Reset la base de données
+## Reset database
 
 ```bash
 npm run db:reset
