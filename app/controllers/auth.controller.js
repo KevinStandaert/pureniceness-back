@@ -16,8 +16,8 @@ export default class AuthController {
 
     if (!existingUser) {
       const err = new ApiError(
-        'Mot de passe ou email incorrect.',
-        { httpStatus: 401 },
+        'L\'utilisateur est introuvable',
+        { httpStatus: 404 },
       );
       return next(err);
     }
@@ -59,7 +59,6 @@ export default class AuthController {
     };
 
     const userCreated = await userController.create(userData);
-    console.log(userCreated);
     if (!userCreated) {
       const err = new ApiError(
         'Erreur lors de la création du compte.',
