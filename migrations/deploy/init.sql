@@ -20,7 +20,7 @@ CREATE TABLE "social" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "url" TEXT NOT NULL,
-    "label_id" INT NOT NULL REFERENCES "label"("id"),
+    "label_id" INT NOT NULL REFERENCES "label"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
 );
@@ -65,7 +65,7 @@ CREATE TABLE "album" (
     "year" INT NOT NULL,
     "url_img" TEXT NOT NULL,
     "type" TEXT NOT NULL,
-    "label_id" int NOT NULL REFERENCES "label"("id"),
+    "label_id" int NOT NULL REFERENCES "label"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
 );
@@ -97,7 +97,7 @@ CREATE TABLE "track" (
     "listening" INT NOT NULL DEFAULT 0,
     "duration" INT NOT NULL,
     "style" TEXT NOT NULL DEFAULT 'dub',
-    "album_id" INT NOT NULL REFERENCES "album"("id"),
+    "album_id" INT NOT NULL REFERENCES "album"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
 );
@@ -106,8 +106,8 @@ CREATE TABLE "track" (
 -- Link table between USER and TRACK
 CREATE TABLE "user_like_track" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "user_id" INT NOT NULL REFERENCES "user"("id"),
-    "track_id" INT NOT NULL REFERENCES "track"("id"),
+    "user_id" INT NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
+    "track_id" INT NOT NULL REFERENCES "track"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
 );
@@ -115,8 +115,8 @@ CREATE TABLE "user_like_track" (
 -- Link table between TRACK and ARTIST
 CREATE TABLE "track_has_artist" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "track_id" INT NOT NULL REFERENCES "track"("id"),
-    "artist_id" INT NOT NULL REFERENCES "artist"("id"),
+    "track_id" INT NOT NULL REFERENCES "track"("id") ON DELETE CASCADE,
+    "artist_id" INT NOT NULL REFERENCES "artist"("id") ON DELETE CASCADE,
     "role" TEXT NOT NULL,
     "order" INT NOT NULL DEFAULT 0,
     "created_at" timestamptz NOT NULL DEFAULT now(),
