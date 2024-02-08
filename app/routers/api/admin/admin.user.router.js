@@ -17,7 +17,7 @@ adminUserRouter.route('/users/:id(\\d+)')
   .get(controllerWrapper(userController.getByPk.bind(userController)))
   .patch(
     validationMiddleware('body', userCreateSchema),
-    controllerWrapper(userController.create.bind(userController)),
+    controllerWrapper(userController.update.bind(userController)),
   )
   .delete(controllerWrapper(userController.delete.bind(userController)));
 
