@@ -1,0 +1,30 @@
+@endpoint=http://localhost:4000/api
+
+### signin
+POST {{endpoint}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "dfgdfg@dfgdfg.fr",
+  "password": "12344444"
+}
+
+### signup
+POST {{endpoint}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "dfgdfg@dfgdfg.fr",
+  "password": "12341234",
+  "passwordConfirm": "12341234",
+  "firstname":"dfgdfg" ,
+  "lastname": "dfgdfg",
+  "birthdate": "1992-01-26",
+  "address": "dfgdfg",
+  "zipcode": "dgdfg",
+  "city":"dfgdfg",
+  "country": "dgdfg"
+}
+
+### signout
+GET {{endpoint}}/auth/signout

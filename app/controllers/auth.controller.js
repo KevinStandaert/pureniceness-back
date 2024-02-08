@@ -4,14 +4,15 @@ export default class AuthController {
   static datamapper = userDatamapper;
 
   static async getSignout(_, res) {
-    res.status(200).statusMessage('Déconnexion réussie');
+    console.log('Deconnexion');
+    res.status(200).json('Déconnexion réussie');
   }
 
   static async postSignin(req, res) {
-    res.status(200).statusMessage('Connexion réussie');
+    res.status(200).json('Connexion réussie');
   }
 
   static async postSignup(req, res) {
-    res.status(200).statusMessage('Inscription réussie');
+    res.status(200).json('Inscription réussie');
   }
 }
