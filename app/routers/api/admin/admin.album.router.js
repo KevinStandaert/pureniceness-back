@@ -2,8 +2,8 @@ import express from 'express';
 import albumController from '../../../controllers/label.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
-import albumCreateSchema from '../../../schemas/label.create.shema.js';
-import albumUpdateSchema from '../../../schemas/label.update.schema.js';
+import albumCreateSchema from '../../../schemas/album.create.shema.js';
+import albumUpdateSchema from '../../../schemas/album.update.schema.js';
 
 const adminAlbumRouter = express.Router();
 

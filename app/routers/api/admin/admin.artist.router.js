@@ -2,8 +2,8 @@ import express from 'express';
 import artistController from '../../../controllers/artist.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
-import artistCreateSchema from '../../../schemas/label.create.shema.js';
-import artistUpdateSchema from '../../../schemas/label.update.schema.js';
+import artistCreateSchema from '../../../schemas/artist.create.shema.js';
+import artistUpdateSchema from '../../../schemas/artist.update.schema.js';
 
 const adminArtistRouter = express.Router();
 
