@@ -2,3 +2,4 @@
 %project=pureniceness
 
 init 2024-02-07T14:33:00Z Cedric Jardon <cedric.jardon@oclock.school> # initialize database
+user_function 2024-02-08T09:58:55Z Etudiant O'clock <student@teleporter> # add user's function for CRUD
