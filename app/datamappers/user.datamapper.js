@@ -1,3 +1,5 @@
+import client from '../helpers/pg.client.js';
+
 /**
  * @typedef {object} User
  * @property {integer} id - User id
@@ -36,4 +38,9 @@ export default class UserDatamapper extends CoreDatamapper {
   static readTableName = 'user';
 
   static writeTableName = 'user';
+
+  static async findByEmail(email) {
+    const result = await client.query(`SELECT * FROM "${this.readTableName}" WHERE "email" = $1`, [email]);
+    return result.rows[0];
+  }
 }

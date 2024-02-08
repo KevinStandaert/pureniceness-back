@@ -9,18 +9,18 @@ const authRouter = express.Router();
 
 authRouter.route('/signout')
   /**
-   * GET /api/users
+   * GET /api/auth/signout
    * @summary Disconnect user
    * @tags Users
    * @return {User[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
-  .get(controllerWrapper(authController.getSignout.bind(authController)));
+  .get(controllerWrapper(authController.getSignout));
 
 authRouter.route('/signin')
   /**
-   * POST /api/users
+   * POST /api/auth/signin
    * @summary Connect a user
    * @tags Users
    * @param {userInput} request.body.required - user info
@@ -30,12 +30,12 @@ authRouter.route('/signin')
    */
   .post(
     validationMiddleware('body', userConnectSchema),
-    controllerWrapper(authController.postSignin.bind(authController)),
+    controllerWrapper(authController.postSignin),
   );
 
 authRouter.route('/signup')
   /**
-   * POST /api/users
+   * POST /api/auth/signup
    * @summary Inscription of a user
    * @tags Users
    * @param {userInput} request.body.required - user info
@@ -45,7 +45,7 @@ authRouter.route('/signup')
    */
   .post(
     validationMiddleware('body', userCreateSchema),
-    controllerWrapper(authController.postSignup.bind(authController)),
+    controllerWrapper(authController.postSignup),
   );
 
 export default authRouter;
