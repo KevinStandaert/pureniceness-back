@@ -1,13 +1,14 @@
 import express from 'express';
-import userController from '../../controllers/user.controller.js';
-import controllerWrapper from '../../helpers/controller.wrapper.js';
-import validationMiddleware from '../../middlewares/validation.middleware.js';
-import userCreateSchema from '../../schemas/user.create.schema.js';
-import userUpdateSchema from '../../schemas/user.update.schema.js';
+import userController from '../../../controllers/user.controller.js';
+import controllerWrapper from '../../../helpers/controller.wrapper.js';
+import validationMiddleware from '../../../middlewares/validation.middleware.js';
+import userCreateSchema from '../../../schemas/user.create.schema.js';
+import userUpdateSchema from '../../../schemas/user.update.schema.js';
 
 const userRouter = express.Router();
 
-userRouter.route('/')
+userRouter
+  .route('/')
   /**
    * GET /api/users
    * @summary Get all users
@@ -31,7 +32,8 @@ userRouter.route('/')
     controllerWrapper(userController.create.bind(userController)),
   );
 
-userRouter.route('/:id(\\d+)')
+userRouter
+  .route('/:id(\\d+)')
   /**
    * GET /api/users/{id}
    * @summary Get a user from its id
