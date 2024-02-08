@@ -5,9 +5,9 @@ import apiAdminLabelRouter from './admin.label.router.js';
 
 const apiAdminRouter = express.Router();
 
-apiAdminRouter.use('/admin/users', apiAdminUserRouter);
+apiAdminRouter.use('/users', apiAdminUserRouter);
 
-apiAdminRouter.use('/admin/labels', apiAdminLabelRouter);
+apiAdminRouter.use('/labels', apiAdminLabelRouter);
 
 apiAdminRouter.use((_, __, next) => {
   next(new ApiError('Resource not found', { httpStatus: 404 }));
