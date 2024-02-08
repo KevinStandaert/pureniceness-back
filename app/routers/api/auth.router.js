@@ -7,7 +7,7 @@ import userConnectSchema from '../../schemas/user.connect.schema.js';
 
 const authRouter = express.Router();
 
-authRouter.route('/auth/signout')
+authRouter.route('/signout')
   /**
    * GET /api/users
    * @summary Disconnect user
@@ -16,9 +16,9 @@ authRouter.route('/auth/signout')
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
-  .get(controllerWrapper(authController.getAll.bind(authController)));
+  .get(controllerWrapper(authController.getSignout.bind(authController)));
 
-authRouter.route('/auth/signin')
+authRouter.route('/signin')
   /**
    * POST /api/users
    * @summary Connect a user
@@ -30,10 +30,10 @@ authRouter.route('/auth/signin')
    */
   .post(
     validationMiddleware('body', userConnectSchema),
-    controllerWrapper(authController.create.bind(authController)),
+    controllerWrapper(authController.postSignin.bind(authController)),
   );
 
-authRouter.route('/auth/signup')
+authRouter.route('/signup')
   /**
    * POST /api/users
    * @summary Inscription of a user
@@ -45,7 +45,7 @@ authRouter.route('/auth/signup')
    */
   .post(
     validationMiddleware('body', userCreateSchema),
-    controllerWrapper(authController.create.bind(authController)),
+    controllerWrapper(authController.postSignup.bind(authController)),
   );
 
 export default authRouter;
