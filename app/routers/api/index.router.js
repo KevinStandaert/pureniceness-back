@@ -6,6 +6,7 @@ import apiAdminUserRouter from './admin/admin.user.router.js';
 const apiRouter = express.Router();
 
 apiRouter.use('/users', apiUserRouter);
+apiRouter.use('/auth', apiUserRouter);
 
 apiRouter.use('/admin', apiAdminUserRouter);
 
