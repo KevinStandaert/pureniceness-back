@@ -7,14 +7,14 @@ import userUpdateSchema from '../../../schemas/user.update.schema.js';
 
 const adminUserRouter = express.Router();
 
-adminUserRouter.route('/users')
+adminUserRouter.route('/')
   .get(controllerWrapper(userController.getAll.bind(userController)))
   .post(
     validationMiddleware('body', userCreateSchema),
     controllerWrapper(userController.create.bind(userController)),
   );
 
-adminUserRouter.route('/users/:id(\\d+)')
+adminUserRouter.route('/:id(\\d+)')
   .get(controllerWrapper(userController.getByPk.bind(userController)))
   .patch(
     validationMiddleware('body', userUpdateSchema),
