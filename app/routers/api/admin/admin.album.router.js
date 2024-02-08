@@ -1,5 +1,5 @@
 import express from 'express';
-import albumController from '../../../controllers/label.controller.js';
+import albumController from '../../../controllers/album.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import albumCreateSchema from '../../../schemas/album.create.shema.js';
