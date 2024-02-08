@@ -33,7 +33,7 @@ VALUES
 ('user10@example.com', 'password10', 'Sophia', 'Lopez', '1986-11-12', '111 Street', '58246', 'Toronto', 'Canada');
 
 -- Insertion de données dans la table EVENT
-INSERT INTO "event" ("name", "type", "description", "starting_date", "ending_date", "city", "country", "location", "url_img")
+INSERT INTO "event" ("name", "type", "description", "starting_date", "ending_date", "city", "country", "location", "url_image")
 VALUES
 ('Event 1', 'Festival', 'Description de l''événement 1', '2024-07-01', '2024-07-03', 'Paris', 'France', 'Venue 1', 'url_image_event_1'),
 ('Event 2', 'Concert', 'Description de l''événement 2', '2024-08-15', '2024-08-15', 'Berlin', 'Allemagne', 'Venue 2', 'url_image_event_2'),
@@ -47,7 +47,7 @@ VALUES
 ('Event 10', 'Spectacle', 'Description de l''événement 10', '2025-04-15', '2025-04-16', 'Toronto', 'Canada', 'Venue 10', 'url_image_event_10');
 
 -- Insertion de données dans la table ALBUM
-INSERT INTO "album" ("name", "year", "url_img", "type", "label_id")
+INSERT INTO "album" ("name", "year", "url_image", "type", "label_id")
 VALUES
 ('Album 1', 2020, 'url_image_album_1', 'Studio', 1),
 ('Album 2', 2018, 'url_image_album_2', 'Live', 2),
@@ -61,7 +61,7 @@ VALUES
 ('Album 10', 2012, 'url_image_album_10', 'Live', 1);
 
 -- Insertion de données dans la table ARTIST
-INSERT INTO "artist" ("firstname", "lastname", "nickname", "year", "city", "country", "description", "function", "url_img")
+INSERT INTO "artist" ("firstname", "lastname", "nickname", "year", "city", "country", "description", "function", "url_image")
 VALUES
 ('Alice', 'Jones', 'AJ', 1980, 'Paris', 'France', 'Description de l''artiste Alice Jones', 'Chanteuse', 'url_image_artist_1'),
 ('Bob', 'Smith', 'BS', 1975, 'Berlin', 'Allemagne', 'Description de l''artiste Bob Smith', 'Guitariste', 'url_image_artist_2'),
@@ -75,7 +75,7 @@ VALUES
 ('Jack', 'Taylor', 'JT', 1987, 'Toronto', 'Canada', 'Description de l''artiste Jack Taylor', 'Choriste', 'url_image_artist_10');
 
 -- Insertion de données dans la table TRACK
-INSERT INTO "track" ("name", "year", "url_img", "url_sound", "duration", "style", "album_id")
+INSERT INTO "track" ("name", "year", "url_image", "url_sound", "duration", "style", "album_id")
 VALUES
 ('Track 1', 2020, 'url_image_track_1', 'url_sound_track_1', 240, 'Rock', 1),
 ('Track 2', 2018, 'url_image_track_2', 'url_sound_track_2', 180, 'Pop', 2),
