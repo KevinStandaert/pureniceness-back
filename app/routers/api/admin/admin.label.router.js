@@ -7,14 +7,14 @@ import labelUpdateSchema from '../../../schemas/label.update.schema.js';
 
 const adminLabelRouter = express.Router();
 
-adminLabelRouter.route('/labels')
+adminLabelRouter.route('/')
   .get(controllerWrapper(labelController.getAll.bind(labelController)))
   .post(
     validationMiddleware('body', labelCreateSchema),
     controllerWrapper(labelController.create.bind(labelController)),
   );
 
-adminLabelRouter.route('/labels/:id(\\d+)')
+adminLabelRouter.route('/:id(\\d+)')
   .get(controllerWrapper(labelController.getByPk.bind(labelController)))
   .patch(
     validationMiddleware('body', labelUpdateSchema),
