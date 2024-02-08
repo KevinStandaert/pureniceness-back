@@ -1,18 +1,14 @@
 import express from 'express';
-import ApiError from '../../errors/api.error.js';
-import apiUserRouter from './user.router.js';
-import apiAuthRouter from './auth.router.js';
-import apiAdminUserRouter from './admin/admin.user.router.js';
+import apiRouter from './site/index.router.js';
+import adminRouter from './admin/index.router.js';
+import errorHandler from '../../helpers/error.handler.js';
 
-const apiRouter = express.Router();
+const router = express.Router();
 
-apiRouter.use('/users', apiUserRouter);
-apiRouter.use('/auth', apiAuthRouter);
+router.use('/site', apiRouter);
 
-apiRouter.use('/admin', apiAdminUserRouter);
+router.use('/admin', adminRouter);
 
-apiRouter.use((_, __, next) => {
-  next(new ApiError('Resource not found', { httpStatus: 404 }));
-});
+router.use(errorHandler);
 
-export default apiRouter;
+export default router;
