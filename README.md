@@ -1,31 +1,4 @@
-<<<<<<< HEAD
 # projet-15-pureniceness-records-back
-=======
-# NodeJS Express Server Template
-
-## Application Features Integrated into the Template
-
-basic Architecture
-
-dotenv (environment variable import)
-
-eslint (Airbnb configuration)
-
-swagger (API documentation)
-
-joi (validation schema + validation middleware)
-
-winston + winston-daily-rotate-file (logging / logger)
-
-coredattamapper
-
-corecontroller
-
-centralization of errors
-
-controller wrapper
-
-database connection (PSQL connection pooling)
 
 ## Installation
 
@@ -39,13 +12,11 @@ Copy the .env.example file and rename it to .env
 
 Replace the values of the environment variables with your own values
 
-## Examples files
+## Fichier .sqitch.example.conf
 
-These files serve as templates.
+Copy the .sqitch.example.conf file and rename it to .sqitch.conf
 
-Use files starting with `example.*` and replace the `example` with the values you want to use.
-
- Additionally, replace the placeholder values `example` within the files with your specific values.
+Replace the values of variables with your own values
 
 ## Launch the Server
 
@@ -53,28 +24,8 @@ Use files starting with `example.*` and replace the `example` with the values yo
 npm run dev
 ```
 
-## <span style="color:red"> ⚠️  WARNING ! </span>
+## Reset la base de données
 
-The Core `Controller` and `Datamapper` are designed to utilize `advanced SQL`, incorporating `functions`.
-
-Ensure that the `SQL` statements used in these components align with the advanced functionalities and required operations.
-
-Adjust the `SQL queries` within these files accordingly to meet the specific needs of your application.
-
-**Example of function:**
-
-```SQL
-CREATE FUNCTION create_example("data" json) RETURNS example AS $$
-
-  INSERT INTO "example"
-  (
-    "name",
-    "number",
-  ) VALUES (
-    data->>'name',
-    (data->>'number')::int
-  ) RETURNING *
-
-$$ LANGUAGE sql STRICT;
+```bash
+npm run db:reset
 ```
->>>>>>> 76318ecc2aba51ca13501051066f9ed5d440ceda
