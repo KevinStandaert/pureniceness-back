@@ -3,3 +3,6 @@
 
 init 2024-02-07T14:33:00Z Cedric Jardon <cedric.jardon@oclock.school> # initialize database
 user_function 2024-02-08T09:58:55Z Etudiant O'clock <student@teleporter> # add user's function for CRUD
+label_function 2024-02-08T11:20:11Z Etudiant O'clock <student@teleporter> # add label's function for CRUD
+artist_function 2024-02-08T11:38:55Z Etudiant O'clock <student@teleporter> # add artist's function for CRUD
+social_function 2024-02-08T12:11:39Z Etudiant O'clock <student@teleporter> # add social's function for CRUD

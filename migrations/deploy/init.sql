@@ -53,7 +53,7 @@ CREATE TABLE "event" (
     "city" TEXT NOT NULL,
     "country" TEXT NOT NULL,
     "location" TEXT NOT NULL,
-    "url_img" TEXT NOT NULL,
+    "url_image" TEXT NOT NULL,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
 );
@@ -63,7 +63,7 @@ CREATE TABLE "album" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "year" INT NOT NULL,
-    "url_img" TEXT NOT NULL,
+    "url_image" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "label_id" int NOT NULL REFERENCES "label"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
@@ -81,7 +81,7 @@ CREATE TABLE "artist" (
     "country" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "function" TEXT NOT NULL,
-    "url_img" TEXT NOT NULL,
+    "url_image" TEXT NOT NULL,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
 );
@@ -92,7 +92,7 @@ CREATE TABLE "track" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "year" INT NOT NULL,
-    "url_img" TEXT NOT NULL,
+    "url_image" TEXT NOT NULL,
     "url_sound" TEXT NOT NULL,
     "listening" INT NOT NULL DEFAULT 0,
     "duration" INT NOT NULL,
