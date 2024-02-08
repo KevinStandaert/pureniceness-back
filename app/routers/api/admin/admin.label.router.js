@@ -2,7 +2,7 @@ import express from 'express';
 import labelController from '../../../controllers/label.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
-import labelCreateSchema from '../../../schemas/label.create.shema.js';
+import labelCreateSchema from '../../../schemas/label.create.schema.js';
 import labelUpdateSchema from '../../../schemas/label.update.schema.js';
 
 const adminLabelRouter = express.Router();

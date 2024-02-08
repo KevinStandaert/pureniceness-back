@@ -2,7 +2,7 @@ import express from 'express';
 import trackController from '../../../controllers/track.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
-import trackCreateSchema from '../../../schemas/track.create.shema.js';
+import trackCreateSchema from '../../../schemas/track.create.schema.js';
 import trackUpdateSchema from '../../../schemas/track.update.schema.js';
 
 const adminTrackRouter = express.Router();

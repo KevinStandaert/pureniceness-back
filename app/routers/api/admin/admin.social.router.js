@@ -2,7 +2,7 @@ import express from 'express';
 import socialController from '../../../controllers/social.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
-import socialCreateSchema from '../../../schemas/social.create.shema.js';
+import socialCreateSchema from '../../../schemas/social.create.schema.js';
 import socialUpdateSchema from '../../../schemas/social.update.schema.js';
 
 const adminSocialRouter = express.Router();

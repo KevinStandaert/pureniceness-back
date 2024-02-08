@@ -2,7 +2,7 @@ import express from 'express';
 import eventController from '../../../controllers/event.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
-import eventCreateSchema from '../../../schemas/event.create.shema.js';
+import eventCreateSchema from '../../../schemas/event.create.schema.js';
 import labelUpdateSchema from '../../../schemas/event.update.schema.js';
 
 const adminEventRouter = express.Router();
