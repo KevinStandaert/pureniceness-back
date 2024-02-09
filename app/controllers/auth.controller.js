@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import userDatamapper from '../datamappers/user.datamapper.js';
 import ApiError from '../errors/api.error.js';
 import userController from './user.controller.js';
@@ -34,7 +35,15 @@ export default class AuthController {
       return next(err);
     }
 
-    return res.status(200).json('Connexion réussie');
+    const token = jwt.sign({
+      userId: existingUser.id,
+      email: existingUser.email,
+      firstname: existingUser.firstname,
+      lastname: existingUser.lastname,
+      role: existingUser.role,
+    }, process.env.JWT_SECRET, { expiresIn: '1w' });
+
+    return res.status(200).json({ token });
   }
 
   static async postSignup(req, res, next) {
