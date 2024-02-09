@@ -6,7 +6,7 @@
  * @property {string} name - Label name
  * @property {integer} year - Label year of creation
  * @property {string} city - Label city
- * @property {integer} country - Label country
+ * @property {string} country - Label country
  * @property {string} description - Label description
  * @property {string} url_image - Label url_image
  * @property {string} created_at - User created_at
