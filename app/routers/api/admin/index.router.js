@@ -7,7 +7,7 @@ import apiAdminSocialRouter from './admin.social.router.js';
 import apiAdminAlbumRouter from './admin.album.router.js';
 import apiAdminTrackRouter from './admin.track.router.js';
 import apiAdminEventRouter from './admin.event.router.js';
- 
+
 const apiAdminRouter = express.Router();
 
 apiAdminRouter.use('/users', apiAdminUserRouter);
