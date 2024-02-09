@@ -23,9 +23,7 @@ export default class AuthController {
       return next(err);
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const isValidPassword = bcrypt.compare(hashedPassword, existingUser.password);
+    const isValidPassword = await bcrypt.compare(password, existingUser.password);
 
     if (!isValidPassword) {
       const err = new ApiError(
@@ -76,6 +74,6 @@ export default class AuthController {
       return next(err);
     }
 
-    return res.status(201).json('Inscription réussie');
+    return res.status(201).json({ user: userCreated });
   }
 }
