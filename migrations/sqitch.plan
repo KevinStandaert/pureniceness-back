@@ -9,3 +9,5 @@ social_function 2024-02-08T12:11:39Z Etudiant O'clock <student@teleporter> # add
 album_function 2024-02-09T08:31:34Z Kevin S. <kevin.standaert@gmail.com> # add album's function for CRUD
 track_function 2024-02-09T09:14:07Z Kevin S. <kevin.standaert@gmail.com> # add track's function for CRUD
 event_function 2024-02-09T09:30:23Z Kevin S. <kevin.standaert@gmail.com> # add event's function for CRUD
+add_token 2024-02-09T11:03:27Z Etudiant O'clock <student@teleporter> # add token table to database
+token_function 2024-02-09T11:47:17Z Etudiant O'clock <student@teleporter> # add token's function for CRUD
