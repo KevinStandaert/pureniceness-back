@@ -10,15 +10,6 @@ const userRouter = express.Router();
 userRouter
   .route('/')
   /**
-   * GET /api/users
-   * @summary Get all users
-   * @tags Users
-   * @return {User[]} 200 - success response - application/json
-   * @return {ApiJsonError} 400 - Bad request response - application/json
-   * @return {ApiJsonError} 500 - Internal Server Error - application/json
-   */
-  .get(controllerWrapper(userController.getAll.bind(userController)))
-  /**
    * POST /api/users
    * @summary Create a new user
    * @tags Users
