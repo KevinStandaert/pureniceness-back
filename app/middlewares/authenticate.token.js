@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import ApiError from '../errors/api.error.js';
 
 // Middleware to verify authentication and extract user information
+// eslint-disable-next-line consistent-return
 function authenticateToken(req, res, next) {
   // Retrieve the authentication token from the Authorization header
   const authHeader = req.headers.authorization;
@@ -26,8 +27,6 @@ function authenticateToken(req, res, next) {
     req.user = user; // Attach user data to the req object
     return next(); // Call the next middleware
   });
-
-  return next();
 }
 
 export default authenticateToken;

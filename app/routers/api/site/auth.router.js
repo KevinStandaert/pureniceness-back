@@ -4,6 +4,7 @@ import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import userCreateSchema from '../../../schemas/user.create.schema.js';
 import userConnectSchema from '../../../schemas/user.connect.schema.js';
+import authenticateToken from '../../../middlewares/authenticate.token.js';
 
 const authRouter = express.Router();
 
@@ -16,7 +17,7 @@ authRouter.route('/signout')
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
-  .get(controllerWrapper(authController.getSignout));
+  .get(authenticateToken, controllerWrapper(authController.getSignout));
 
 authRouter.route('/signin')
   /**

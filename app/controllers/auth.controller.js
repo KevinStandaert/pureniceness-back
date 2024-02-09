@@ -8,6 +8,9 @@ export default class AuthController {
   static datamapper = userDatamapper;
 
   static async getSignout(req, res) {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+    // TODO destroy le token
     return res.status(200).json('Déconnexion réussie');
   }
 
