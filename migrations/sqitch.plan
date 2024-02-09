@@ -11,3 +11,4 @@ track_function 2024-02-09T09:14:07Z Kevin S. <kevin.standaert@gmail.com> # add t
 event_function 2024-02-09T09:30:23Z Kevin S. <kevin.standaert@gmail.com> # add event's function for CRUD
 add_token 2024-02-09T11:03:27Z Etudiant O'clock <student@teleporter> # add token table to database
 token_function 2024-02-09T11:47:17Z Etudiant O'clock <student@teleporter> # add token's function for CRUD
+label_album_view 2024-02-09T13:02:01Z Cedric Jardon <cedric.jardon@oclock.school> # function of JOIN album to label
