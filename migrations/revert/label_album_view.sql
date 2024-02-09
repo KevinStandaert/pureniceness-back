@@ -2,8 +2,8 @@
 
 BEGIN;
 
-DROP VIEW IF EXISTS "label_album";
+DROP VIEW IF EXISTS "labels_with_albums";
 
-DROP VIEW IF EXISTS "label_social";
+DROP VIEW IF EXISTS "labels_with_socials";
 
 COMMIT;
