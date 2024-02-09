@@ -2,7 +2,7 @@
 
 BEGIN;
 
-SELECT * FROM label_album WHERE FALSE;
+SELECT * FROM "labels_with_album" WHERE FALSE;
 
-SELECT * FROM label_social WHERE FALSE;
+SELECT * FROM "label_with_social" WHERE FALSE;
 ROLLBACK;
