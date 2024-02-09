@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import userDatamapper from '../datamappers/user.datamapper.js';
 import ApiError from '../errors/api.error.js';
 import userController from './user.controller.js';
@@ -7,6 +8,9 @@ export default class AuthController {
   static datamapper = userDatamapper;
 
   static async getSignout(req, res) {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+    // TODO destroy le token
     return res.status(200).json('Déconnexion réussie');
   }
 
@@ -22,9 +26,7 @@ export default class AuthController {
       return next(err);
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const isValidPassword = bcrypt.compare(hashedPassword, existingUser.password);
+    const isValidPassword = await bcrypt.compare(password, existingUser.password);
 
     if (!isValidPassword) {
       const err = new ApiError(
@@ -34,7 +36,15 @@ export default class AuthController {
       return next(err);
     }
 
-    return res.status(200).json('Connexion réussie');
+    const token = jwt.sign({
+      userId: existingUser.id,
+      email: existingUser.email,
+      firstname: existingUser.firstname,
+      lastname: existingUser.lastname,
+      role: existingUser.role,
+    }, process.env.JWT_SECRET, { expiresIn: '1w' });
+
+    return res.status(200).json({ token });
   }
 
   static async postSignup(req, res, next) {
@@ -67,6 +77,6 @@ export default class AuthController {
       return next(err);
     }
 
-    return res.status(201).json('Inscription réussie');
+    return res.status(201).json({ user: userCreated });
   }
 }
