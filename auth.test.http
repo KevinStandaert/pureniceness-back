@@ -5,8 +5,8 @@ POST {{endpoint}}/auth/signin
 Content-Type: application/json
 
 {
-  "email": "dfgdfg@dfgdfg.fr",
-  "password": "12344444"
+  "email": "test@test.fr",
+  "password": "12341234"
 }
 
 ### signup
@@ -14,7 +14,7 @@ POST {{endpoint}}/auth/signup
 Content-Type: application/json
 
 {
-  "email": "dfgdfg@dfgdfg.fr",
+  "email": "test8@test.fr",
   "password": "12341234",
   "passwordConfirm": "12341234",
   "firstname":"dfgdfg" ,
@@ -28,3 +28,7 @@ Content-Type: application/json
 
 ### signout
 GET {{endpoint}}/auth/signout
+
+### test admin
+GET {{endpoint}}/admin/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE0LCJlbWFpbCI6InRlc3RAdGVzdC5mciIsImZpcnN0bmFtZSI6ImRmZ2RmZyIsImxhc3RuYW1lIjoiZGZnZGZnIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA3NDcxODM1LCJleHAiOjE3MDgwNzY2MzV9.GYlSpQ9GYeSYlmAmHep_LgqU9H-X2cj1_dF0BJq6dPk
