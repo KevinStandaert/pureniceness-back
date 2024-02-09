@@ -32,6 +32,8 @@ export default class AuthController {
 
   static async postSignin(req, res, next) {
     const { email, password } = req.body;
+
+    // Check if a user with the provided email exists in the database
     const existingUser = await userDatamapper.findByEmail(email);
 
     if (!existingUser) {
@@ -42,6 +44,7 @@ export default class AuthController {
       return next(err);
     }
 
+    // Compare the provided password with the hashed password stored in the database
     const isValidPassword = await bcrypt.compare(password, existingUser.password);
 
     if (!isValidPassword) {
@@ -52,6 +55,7 @@ export default class AuthController {
       return next(err);
     }
 
+    // Generate a JWT token with user information and expiration time
     const token = jwt.sign({
       userId: existingUser.id,
       email: existingUser.email,
@@ -60,16 +64,20 @@ export default class AuthController {
       role: existingUser.role,
     }, process.env.JWT_SECRET, { expiresIn: '1w' });
 
+    // Calculate the expiration date for the token (1 week from now)
     const expiresIn = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
+    // Prepare data to insert into the token table
     const data = {
       user_id: existingUser.id,
       key: token,
       expires_at: expiresIn,
     };
 
+    // Insert the token data into the token table
     const tokenCreated = await tokenDatamapper.insert(data);
 
+    // If an error occurs during token creation, return a 400 error
     if (!tokenCreated) {
       const err = new ApiError(
         'Erreur lors de la création du token.',
@@ -84,8 +92,10 @@ export default class AuthController {
   static async postSignup(req, res, next) {
     const { password, ...bodyWithoutPassword } = req.body;
 
+    // Check if a user with the provided email already exists
     const existingUser = await userDatamapper.findByEmail(bodyWithoutPassword.email);
 
+    // If a user with the provided email already exists, return a 409 conflict error
     if (existingUser) {
       const err = new ApiError(
         'Email déjà utilisé.',
@@ -93,8 +103,11 @@ export default class AuthController {
       );
       return next(err);
     }
+
+    // Hash the provided password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Prepare user data with hashed password
     const userData = {
       body: {
         ...bodyWithoutPassword,
@@ -102,7 +115,10 @@ export default class AuthController {
       },
     };
 
+    // Call the user controller's create method to create the user
     const userCreated = await userController.create(userData);
+
+    // If an error occurs during user creation, return a 400 error
     if (!userCreated) {
       const err = new ApiError(
         'Erreur lors de la création du compte.',

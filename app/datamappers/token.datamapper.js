@@ -10,4 +10,9 @@ export default class TokenDatamapper extends CoreDatamapper {
     const result = await client.query(`DELETE FROM "${this.writeTableName}" WHERE "key" = $1`, [token]);
     return !!result.rowCount;
   }
+
+  static async findByToken(token) {
+    const result = await client.query(`SELECT * FROM "${this.writeTableName}" WHERE "key" = $1`, [token]);
+    return result.rows[0];
+  }
 }

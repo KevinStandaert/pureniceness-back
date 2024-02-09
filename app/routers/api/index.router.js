@@ -7,9 +7,9 @@ import authorizeAdmin from '../../middlewares/authorize.admin.js';
 
 const router = express.Router();
 
-router.use('/', apiRouter);
-
 router.use('/admin', authenticateToken, authorizeAdmin, adminRouter);
+
+router.use('/', apiRouter);
 
 router.use(errorHandler);
 
