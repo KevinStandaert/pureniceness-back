@@ -1,16 +1,32 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userDatamapper from '../datamappers/user.datamapper.js';
+import tokenDatamapper from '../datamappers/token.datamapper.js';
 import ApiError from '../errors/api.error.js';
 import userController from './user.controller.js';
 
 export default class AuthController {
   static datamapper = userDatamapper;
 
-  static async getSignout(req, res) {
+  static async getSignout(req, res, next) {
+    // Extract the token from the authorization header
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];
-    // TODO destroy le token
+
+    // Remove the token from the database
+    const tokenRemoved = await tokenDatamapper.deleteByToken(token);
+
+    // Check if the token was successfully removed
+    if (!tokenRemoved) {
+      // If not, create an error indicating an internal server error
+      const err = new ApiError(
+        'Une erreur est survenue lors de la déconnexion. Veuillez réssayer.',
+        { httpStatus: 500 }, // Use HTTP status 500 for internal server error
+      );
+      return next(err);
+    }
+
+    // If successful, send a success response
     return res.status(200).json('Déconnexion réussie');
   }
 
@@ -43,6 +59,24 @@ export default class AuthController {
       lastname: existingUser.lastname,
       role: existingUser.role,
     }, process.env.JWT_SECRET, { expiresIn: '1w' });
+
+    const expiresIn = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+
+    const data = {
+      user_id: existingUser.id,
+      key: token,
+      expires_at: expiresIn,
+    };
+
+    const tokenCreated = await tokenDatamapper.insert(data);
+
+    if (!tokenCreated) {
+      const err = new ApiError(
+        'Erreur lors de la création du token.',
+        { httpStatus: 400 },
+      );
+      return next(err);
+    }
 
     return res.status(200).json({ token });
   }
