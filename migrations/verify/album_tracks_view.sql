@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT * FROM "album_with_tracks" WHERE FALSE;
+SELECT * FROM "albums_with_tracks" WHERE FALSE;
 
 ROLLBACK;

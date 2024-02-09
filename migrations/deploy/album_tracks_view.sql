@@ -3,7 +3,7 @@
 BEGIN;
 
 -- create a view "album_with_tracks" that joins the album and track tables
-CREATE OR REPLACE VIEW "album_with_tracks" AS
+CREATE OR REPLACE VIEW "albums_with_tracks" AS
   SELECT
     "album".*,
     json_agg("track".*) AS "tracks"

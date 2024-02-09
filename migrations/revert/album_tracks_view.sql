@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP VIEW IF EXISTS "album_with_tracks";
+DROP VIEW IF EXISTS "albums_with_tracks";
 
 COMMIT;

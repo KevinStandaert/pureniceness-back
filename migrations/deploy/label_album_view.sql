@@ -11,7 +11,7 @@ CREATE OR REPLACE VIEW "labels_with_albums" AS
   GROUP BY "label".id;
 
 -- create a view "label_social" that joins the label and social tables
-CREATE OR REPLACE VIEW "label_with_social" AS
+CREATE OR REPLACE VIEW "labels_with_socials" AS
   SELECT
     "label".*,
     json_agg("social".*) AS "socials"
