@@ -32,7 +32,6 @@ labelRouter
    */
   .get(controllerWrapper(labelController.getByPk.bind(labelController)));
 
-/*
 labelRouter
   .route('/albums')
   /**
@@ -42,9 +41,9 @@ labelRouter
    * @return {User[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
-  // remettre ici la fin du bloc swagger
+  */
   .get(
-    controllerWrapper(labelController.getAllAlbum.bind(labelController)),
+    controllerWrapper(labelController.getAllLabelsWithAlbums.bind(labelController)),
   );
 
 labelRouter
@@ -56,9 +55,9 @@ labelRouter
    * @return {User[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
-  // remettre ici la fin du bloc swagger
+  */
   .get(
-    controllerWrapper(labelController.getAllAlbumOfOneLabel),
+    controllerWrapper(labelController.getOneLabelWithAlbums.bind(labelController)),
   );
-*/
+
 export default labelRouter;

@@ -9,7 +9,13 @@ GET {{endpoint}}/labels/1
 ### error404 Not found
 GET {{endpoint}}/labels/10058
 
-### get all albums of a Label
+### get all labels with their albums
+GET {{endpoint}}/labels/albums
+
+### error404 Not found
+GET {{endpoint}}/labels/albums/toto
+
+### get one label with its albums
 GET {{endpoint}}/labels/1/albums
 
 ### error404 Not found

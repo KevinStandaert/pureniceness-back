@@ -1,4 +1,4 @@
-// import client from '../helpers/pg.client.js';
+import client from '../helpers/pg.client.js';
 
 /**
  * @typedef {object} Label
@@ -19,4 +19,16 @@ export default class LabelDatamapper extends CoreDatamapper {
   static readTableName = 'label';
 
   static writeTableName = 'label';
+
+  // Function to find all labels with all their albums using the view "labels_with_albums"
+  static async findAllLabelsWithAlbums() {
+    const result = await client.query('SELECT * FROM "labels_with_albums"');
+    return result.rows;
+  }
+
+  // Function to find one label with its albums using the view "labels_with_albums"
+  static async findOneLabelWithAlbums(id) {
+    const result = await client.query('SELECT * FROM "labels_with_albums" WHERE "id" = $1', [id]);
+    return result.rows;
+  }
 }
