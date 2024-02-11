@@ -29,12 +29,12 @@ export default class LabelDatamapper extends CoreDatamapper {
   // Function to find one label with its albums using the view "labels_with_albums"
   static async findOneLabelWithAlbums(id) {
     const result = await client.query('SELECT * FROM "labels_with_albums" WHERE "id" = $1', [id]);
-    return result.rows;
+    return result.rows[0];
   }
 
   // function to find one label with its socials using the view "labels_with_socials"
   static async findOneLabelWithSocials(id) {
     const result = await client.query('SELECT * FROM "labels_with_socials" WHERE "id" = $1', [id]);
-    return result.rows;
+    return result.rows[0];
   }
 }
