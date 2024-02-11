@@ -20,3 +20,9 @@ GET {{endpoint}}/labels/1/albums
 
 ### error404 Not found
 GET {{endpoint}}/labels/1/toto
+
+### get one label with its socials
+GET {{endpoint}}/labels/1/socials
+
+### error404 Not found
+GET {{endpoint}}/labels/1000/socials

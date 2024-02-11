@@ -31,4 +31,25 @@ export default class LabelController extends CoreController {
     }
     return res.status(200).json(oneLabelWithAlbums);
   }
+
+  // Function to get one label with its socials
+  static async getOneLabelWithsocials(req, res, next) {
+    const { id } = req.params;
+    const oneLabelWithSocials = await this.datamapper.findOneLabelWithSocials(id);
+    if (!oneLabelWithSocials) {
+      const err = new ApiError(
+        'Aucun label n\'a été trouvé',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    if (oneLabelWithSocials.length === 0) {
+      const err = new ApiError(
+        'Aucun label n\'a été trouvé',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(200).json(oneLabelWithSocials);
+  }
 }
