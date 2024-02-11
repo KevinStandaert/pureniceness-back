@@ -43,13 +43,6 @@ export default class LabelController extends CoreController {
       );
       return next(err);
     }
-    if (oneLabelWithSocials.length === 0) {
-      const err = new ApiError(
-        'Aucun label n\'a été trouvé',
-        { httpStatus: 404 },
-      );
-      return next(err);
-    }
     return res.status(200).json(oneLabelWithSocials);
   }
 }
