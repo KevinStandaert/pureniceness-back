@@ -7,10 +7,10 @@ const albumRouter = express.Router();
 albumRouter
   .route('/')
   /**
-   * GET /api/labels
-   * @summary Get all tracks
-   * @tags Labels
-   * @return {User[]} 200 - success response - application/json
+   * GET /api/albums
+   * @summary Get all albums
+   * @tags Album
+   * @return {Album[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
@@ -21,11 +21,11 @@ albumRouter
 albumRouter
   .route('/:id(\\d+)')
   /**
-   * GET /api/labels/{id}
-   * @summary Get a track from its id
-   * @tags Labels
-   * @param {number} id.path.required - label id
-   * @return {User} 200 - success response - application/json
+   * GET /api/albums/{id}
+   * @summary Get an album by id
+   * @tags Album
+   * @param {number} id.path.required - album id
+   * @return {Album} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 404 - Not found response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
@@ -35,10 +35,10 @@ albumRouter
 albumRouter
   .route('/:id(\\d+)/tracks')
   /**
-   * GET /api/labels/{id}/tracks
+   * GET /api/albums/{id}/tracks
    * @summary Get all tracks of one album
-   * @tags Labels
-   * @return {User[]} 200 - success response - application/json
+   * @tags Album
+   * @return {Album} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
   */
