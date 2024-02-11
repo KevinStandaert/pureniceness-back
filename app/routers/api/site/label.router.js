@@ -60,4 +60,17 @@ labelRouter
     controllerWrapper(labelController.getOneLabelWithAlbums.bind(labelController)),
   );
 
+labelRouter
+  .route('/:id(\\d+)/socials')
+  /**
+   * GET /api/labels/{id}/albums
+   * @summary Get all socials of one label
+   * @tags Labels
+   * @return {User[]} 200 - success response - application/json
+   * @return {ApiJsonError} 400 - Bad request response - application/json
+   * @return {ApiJsonError} 500 - Internal Server Error - application/json
+  */
+  .get(
+    controllerWrapper(labelController.getOneLabelWithsocials.bind(labelController)),
+  );
 export default labelRouter;
