@@ -67,4 +67,5 @@ userRouter.route('/:id(\\d+)/likes')
   .get(
     controllerWrapper(userController.getOneUserWithLikes.bind(userController)),
   );
+
 export default userRouter;

@@ -19,4 +19,18 @@ export default class TrackController extends CoreController {
     }
     return res.status(200).json(oneTrackWithArtists);
   }
+
+  static async addLike(req, res, next) {
+    const { id } = req.params;
+    const addLike = await this.datamapper.addLike(id);
+
+    if (!addLike) {
+      const err = new ApiError(
+        'Aucun titre trouvé',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(200).json('Ajout aux favoris réussi');
+  }
 }

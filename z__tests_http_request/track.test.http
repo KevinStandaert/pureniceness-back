@@ -20,3 +20,12 @@ GET {{endpoint}}/tracks/100/label
 
 ### error404 Not found
 GET {{endpoint}}/tracks/100000/tracks
+
+### likes
+POST {{endpoint}}/tracks/1/likes
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "trackId": 3
+}
