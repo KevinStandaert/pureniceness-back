@@ -43,4 +43,9 @@ export default class UserDatamapper extends CoreDatamapper {
     const result = await client.query(`SELECT * FROM "${this.readTableName}" WHERE "email" = $1`, [email]);
     return result.rows[0];
   }
+
+  static async userTracksLiked(id) {
+    const result = await client.query('SELECT * FROM "user_link_with_track" WHERE "user_id" = $1', [id]);
+    return result.rows[0];
+  }
 }

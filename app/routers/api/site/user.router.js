@@ -63,4 +63,8 @@ userRouter
    */
   .delete(controllerWrapper(userController.delete.bind(userController)));
 
+userRouter.route('/:id(\\d+)/likes')
+  .get(
+    controllerWrapper(userController.getOneUserWithLikes.bind(userController)),
+  );
 export default userRouter;

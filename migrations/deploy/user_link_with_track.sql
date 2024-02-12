@@ -5,7 +5,7 @@ BEGIN;
 CREATE VIEW "user_link_with_track" AS
 SELECT 
 "user"."id" AS "user_id",
-json_agg("track".*)
+json_agg("track".*) AS "likes"
 FROM "user_like_track"
 JOIN "user"
 ON
@@ -13,6 +13,6 @@ ON
 JOIN "track"
 ON
 "user_like_track"."track_id" = "track"."id"
-GROUP BY "user"."id"
+GROUP BY "user"."id";
 
 COMMIT;
