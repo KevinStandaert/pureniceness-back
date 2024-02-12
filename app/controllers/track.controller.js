@@ -31,6 +31,6 @@ export default class TrackController extends CoreController {
       );
       return next(err);
     }
-    return res.status(200).json(addLike);
+    return res.status(200).json('Ajout aux favoris réussi');
   }
 }
