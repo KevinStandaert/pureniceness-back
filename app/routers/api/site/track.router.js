@@ -1,6 +1,7 @@
 import express from 'express';
 import trackController from '../../../controllers/track.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
+import authenticateToken from '../../../middlewares/authenticate.token.js';
 
 const trackRouter = express.Router();
 
@@ -47,14 +48,15 @@ trackRouter.route('/:id(\\d+)/artists')
 
 trackRouter.route('/:id(\\d+)/likes')
 /**
-   * POST /api/tracks/{id}/likes
-   * @summary User Add like to one Track 
+   * GET /api/tracks/{id}/likes
+   * @summary User add like to one Track
    * @tags Track
    * @return {Track} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
   */
-  .post(
+  .get(
+    authenticateToken,
     controllerWrapper(trackController.addLike.bind(trackController)),
   );
 export default trackRouter;
