@@ -54,7 +54,7 @@ trackRouter.route('/:id(\\d+)/likes')
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
   */
-  .get(
+  .post(
     controllerWrapper(trackController.addLike.bind(trackController)),
   );
 export default trackRouter;

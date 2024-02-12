@@ -27,5 +27,5 @@ Content-Type: application/json
 
 {
   "userId": 1,
-  "trackId": 3,
+  "trackId": 3
 }
