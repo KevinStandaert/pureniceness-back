@@ -12,4 +12,6 @@ export default class TrackDatamapper extends CoreDatamapper {
     const result = await client.query('SELECT * FROM "track_with_artist" WHERE "id" = $1', [id]);
     return result.rows[0];
   }
+
+  static async 
 }
