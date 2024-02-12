@@ -5,6 +5,7 @@ import apiAuthRouter from './auth.router.js';
 import apiLabelRouter from './label.router.js';
 import apiAlbumRouter from './album.router.js';
 import apiEventRouter from './event.router.js';
+import apiContactRouter from './contact.router.js';
 import apiTrackRouter from './track.router.js';
 
 const apiSiteRouter = express.Router();
@@ -18,6 +19,8 @@ apiSiteRouter.use('/labels', apiLabelRouter);
 apiSiteRouter.use('/albums', apiAlbumRouter);
 
 apiSiteRouter.use('/events', apiEventRouter);
+
+apiSiteRouter.use('/contact', apiContactRouter);
 
 apiSiteRouter.use('/tracks', apiTrackRouter);
 
