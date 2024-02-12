@@ -22,11 +22,13 @@ export default class TrackController extends CoreController {
 
   static async addLike(req, res, next) {
     const { id } = req.params;
-    const addLike = await this.datamapper.addLike(id);
+    const { userId } = req.user;
+
+    const addLike = await this.datamapper.addLike(userId, id);
 
     if (!addLike) {
       const err = new ApiError(
-        'Aucun titre trouvé',
+        'Erreur lors de l\'ajout aux favoris',
         { httpStatus: 404 },
       );
       return next(err);
