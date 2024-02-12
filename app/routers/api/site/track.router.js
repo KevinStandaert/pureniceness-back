@@ -45,4 +45,16 @@ trackRouter.route('/:id(\\d+)/artists')
     controllerWrapper(trackController.getOneTrackWithArtists.bind(trackController)),
   );
 
+trackRouter.route('/:id(\\d+)/likes')
+/**
+   * GET /api/tracks/{id}/artists
+   * @summary Get track with artists
+   * @tags Track
+   * @return {Track} 200 - success response - application/json
+   * @return {ApiJsonError} 400 - Bad request response - application/json
+   * @return {ApiJsonError} 500 - Internal Server Error - application/json
+  */
+  .get(
+    controllerWrapper(trackController.addLike.bind(trackController)),
+  );
 export default trackRouter;
