@@ -41,3 +41,6 @@ Content-Type: application/json
   "address":"sdfsdfsdf",
   "firstname":"dfgdfg"
 }
+
+### get one user with likes
+get {{endpoint}}/users/1/likes

@@ -109,7 +109,8 @@ CREATE TABLE "user_like_track" (
     "user_id" INT NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
     "track_id" INT NOT NULL REFERENCES "track"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
-    "updated_at" timestamptz
+    "updated_at" timestamptz,
+    UNIQUE("user_id", "track_id")
 );
 
 -- Link table between TRACK and ARTIST
