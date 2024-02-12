@@ -15,23 +15,6 @@ DELETE {{endpoint}}/users/hg
 ### delete User by id
 DELETE {{endpoint}}/users/1
 
-### create User
-POST {{endpoint}}/users
-Content-Type: application/json
-
-{
-  "email": "dfgdfg@dfgdfg.fr",
-  "password": "1234",
-  "passwordConfirm": "1234",
-  "firstname":"dfgdfg" ,
-  "lastname": "dfgdfg",
-  "birthdate": "1992-01-26",
-  "address": "dfgdfg",
-  "zipcode": "dgdfg",
-  "city":"dfgdfg",
-  "country": "dgdfg"
-}
-
 ### update User
 PATCH {{endpoint}}/users/1
 Content-Type: application/json
