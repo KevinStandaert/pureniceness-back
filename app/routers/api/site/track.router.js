@@ -47,8 +47,8 @@ trackRouter.route('/:id(\\d+)/artists')
 
 trackRouter.route('/:id(\\d+)/likes')
 /**
-   * GET /api/tracks/{id}/artists
-   * @summary Get track with artists
+   * POST /api/tracks/{id}/likes
+   * @summary User Add like to one Track 
    * @tags Track
    * @return {Track} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
