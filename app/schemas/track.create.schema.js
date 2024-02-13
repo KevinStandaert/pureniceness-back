@@ -16,8 +16,6 @@ const createTrackSchema = Joi.object({
     .error(new Error('Le style de la musique est requis et doit être une chaîne de caractères')),
   album_id: Joi.number().integer().positive().required()
     .error(new Error('L\'identifiant de l\'album est requis et doit être un entier positif')),
-  listening: Joi.number().integer().required()
-    .error(new Error('Le nombre d\'ecoute doit etre indiqué. Default 0.')),
 });
 
 export default createTrackSchema;
