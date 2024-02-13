@@ -1,0 +1,54 @@
+@endpoint=http://localhost:4000/api/admin
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
+
+
+### Get All users
+GET {{endpoint}}/users
+{{token}}
+
+### Add one user
+POST {{endpoint}}/users
+{{token}}
+Content-Type: application/json
+
+{
+    "email": "test1040@example.com",
+    "password": "password1",
+    "firstname": "michel",
+    "lastname": "tablos",
+    "birthdate": "1690-05-14T22:00:00.000Z",
+    "address": "123 Street",
+    "zipcode": "12345",
+    "city": "Paris",
+    "country": "France",
+    "role": "user"
+}
+
+
+### Get one user
+GET {{endpoint}}/users/12
+{{token}}
+
+### Modify one user
+PATCH {{endpoint}}/users/12
+{{token}}
+Content-Type: application/json
+
+{
+  "email": "test140@example.com",
+  "city": "villefranche"
+}
+
+### Delete one user
+DELETE {{endpoint}}/users/11
+{{token}}
+
+### Error token
+GET {{endpoint}}/users
+
+
+
+
+### signout
+GET {{endpoint}}/auth/signout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
