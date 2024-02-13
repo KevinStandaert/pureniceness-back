@@ -14,7 +14,7 @@ POST {{endpoint}}/auth/signup
 Content-Type: application/json
 
 {
-  "email": "testt@test.fr",
+  "email": "tegstt@test.fr",
   "password": "12341234",
   "passwordConfirm": "12341234",
   "firstname": "dfgdfg",
@@ -23,8 +23,7 @@ Content-Type: application/json
   "address": "dfgdfg",
   "zipcode": "dgdfg",
   "city": "dfgdg",
-  "country": "dgdfg",
-  "role": "user"
+  "country": "dgdfg"
 }
 
 ### signout
