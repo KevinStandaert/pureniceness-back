@@ -1,6 +1,3 @@
-import ApiError from '../errors/api.error.js';
-import parseIntAndCompare from '../utils/parseint.compare.js';
-
 export default class Controller {
   static datamapper;
 
@@ -40,18 +37,8 @@ export default class Controller {
     return res.status(200).json(row);
   }
 
-  static async delete({ params, user }, res, next) {
+  static async delete({ params }, res, next) {
     const { id } = params;
-    const { userId } = user;
-    // parsing and comparing the id and userId
-    const isEqual = parseIntAndCompare(id, userId);
-    if (!isEqual) {
-      const err = new ApiError(
-        'Vous n\'avez pas les droits pour accéder à ces informations',
-        { httpStatus: 403 },
-      );
-      return next(err);
-    }
     const deleted = await this.datamapper.delete(id);
     if (!deleted) {
       return next();
