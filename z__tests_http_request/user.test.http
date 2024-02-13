@@ -14,14 +14,14 @@ DELETE {{endpoint}}/users/hg
 
 ### delete User by id (first in auth.test signup then signin then copy the token and copy it after Bearer)
 DELETE {{endpoint}}/users/13
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODI2ODEzLCJleHAiOjE3MDg0MzE2MTN9.U5oU25gi3ljzqVnHpBnjqe4Efc-4rh0z9ZqF-1JvkTY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODMyNDg5LCJleHAiOjE3MDg0MzcyODl9.7RMv9vUaoiyQAHXmk7cpZQwmwLVHv-xS4pFuLC26J7Y
 
 ### error404 Not found for connected user
 DELETE {{endpoint}}/users/10000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODI2ODEzLCJleHAiOjE3MDg0MzE2MTN9.U5oU25gi3ljzqVnHpBnjqe4Efc-4rh0z9ZqF-1JvkTY
 
 ### update User for connected user
-PATCH {{endpoint}}/users/13
+PATCH {{endpoint}}/users/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODI2ODEzLCJleHAiOjE3MDg0MzE2MTN9.U5oU25gi3ljzqVnHpBnjqe4Efc-4rh0z9ZqF-1JvkTY
 Content-Type: application/json
 
