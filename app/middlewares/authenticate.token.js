@@ -8,7 +8,7 @@ function authenticateToken(req, res, next) {
   // Retrieve the authentication token from the Authorization header
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(' ')[1];
-
+  // == and not === for testing if token is null or undefined
   if (token == null) {
     // If no token is provided, return a 401 error (Unauthorized)
     const err = new ApiError(
