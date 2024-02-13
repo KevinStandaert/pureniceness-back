@@ -91,7 +91,6 @@ export default class AuthController {
 
   static async postSignup(req, res, next) {
     const { password, ...bodyWithoutPassword } = req.body;
-
     // Check if a user with the provided email already exists
     const existingUser = await userDatamapper.findByEmail(bodyWithoutPassword.email);
 
@@ -109,15 +108,11 @@ export default class AuthController {
 
     // Prepare user data with hashed password
     const userData = {
-      body: {
-        ...bodyWithoutPassword,
-        password: hashedPassword,
-      },
+      ...bodyWithoutPassword,
+      password: hashedPassword,
     };
-
     // Call the user controller's create method to create the user
-    const userCreated = await userController.create(userData);
-
+    const userCreated = await userDatamapper.insert(userData);
     // If an error occurs during user creation, return a 400 error
     if (!userCreated) {
       const err = new ApiError(
@@ -126,7 +121,6 @@ export default class AuthController {
       );
       return next(err);
     }
-
     return res.status(201).json({ user: userCreated });
   }
 }
