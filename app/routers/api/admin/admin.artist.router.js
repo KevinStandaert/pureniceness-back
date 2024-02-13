@@ -14,7 +14,7 @@ adminArtistRouter.route('/')
     controllerWrapper(artistController.create.bind(artistController)),
   );
 
-adminArtistRouter.route('/id(\\d+)')
+adminArtistRouter.route('/:id(\\d+)')
   .get(controllerWrapper(artistController.getByPk.bind(artistController)))
   .patch(
     validationMiddleware('body', artistUpdateSchema),
