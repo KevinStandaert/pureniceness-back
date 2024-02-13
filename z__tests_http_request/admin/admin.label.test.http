@@ -2,48 +2,46 @@
 @token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
 
 
-### Get All events
-GET {{endpoint}}/events
+### Get All labels
+GET {{endpoint}}/labels
 {{token}}
 
-### Add one event
-POST {{endpoint}}/events
+### Add one label
+POST {{endpoint}}/labels
 {{token}}
 Content-Type: application/json
 
 {
-  "name": "dubFolie ",
-  "type": "concert",
-  "description": "Lorem ipsum dolor sit amet. Est delectus autem et ipsum ",
-  "starting_date": "2024-06-30T22:00:00.000Z",
-  "ending_date":"2024-07-02T22:00:00.000Z" ,
-  "city":"Paris" ,
-  "country": "france",
-  "location":"folies bergere" ,
-  "url_image": "http://image.net"
+  "name": "beau label",
+  "year": 1970,
+  "city": "Londres",
+  "country": "angleterre",
+  "description":"Lorem ipsum dolor sit amet. Est delectus autem et ipsum" ,
+  "url_image":"http://image.com" 
 }
 
 
-### Get one event
-GET {{endpoint}}/events/13
+### Get one label
+GET {{endpoint}}/labels/5
 {{token}}
 
-### Modify one event
-PATCH {{endpoint}}/events/13
+### Modify one label
+PATCH {{endpoint}}/labels/5
 {{token}}
 Content-Type: application/json
 
 {
-  "type": "pogo",
+  "name": "pogo",
   "country": "autriche"
+  
 }
 
-### Delete one event
-DELETE {{endpoint}}/events/11
+### Delete one label
+DELETE {{endpoint}}/labels/6
 {{token}}
 
 ### Error token
-GET {{endpoint}}/events
+GET {{endpoint}}/labels
 
 
 
