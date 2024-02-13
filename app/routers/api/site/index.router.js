@@ -17,13 +17,13 @@ apiSiteRouter.use('/auth', apiAuthRouter);
 
 apiSiteRouter.use('/labels', apiLabelRouter);
 
-apiSiteRouter.use('/albums', authenticateToken, apiAlbumRouter);
+apiSiteRouter.use('/albums', apiAlbumRouter);
 
 apiSiteRouter.use('/events', apiEventRouter);
 
 apiSiteRouter.use('/contact', apiContactRouter);
 
-apiSiteRouter.use('/tracks', authenticateToken, apiTrackRouter);
+apiSiteRouter.use('/tracks', apiTrackRouter);
 
 apiSiteRouter.use((_, __, next) => {
   next(new ApiError('Resource not found', { httpStatus: 404 }));
