@@ -1,0 +1,51 @@
+@endpoint=http://localhost:4000/api/admin
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
+
+
+### Get All labels
+GET {{endpoint}}/labels
+{{token}}
+
+### Add one label
+POST {{endpoint}}/labels
+{{token}}
+Content-Type: application/json
+
+{
+  "name": "beau label",
+  "year": 1970,
+  "city": "Londres",
+  "country": "angleterre",
+  "description":"Lorem ipsum dolor sit amet. Est delectus autem et ipsum" ,
+  "url_image":"http://image.com" 
+}
+
+
+### Get one label
+GET {{endpoint}}/labels/5
+{{token}}
+
+### Modify one label
+PATCH {{endpoint}}/labels/5
+{{token}}
+Content-Type: application/json
+
+{
+  "name": "pogo",
+  "country": "autriche"
+  
+}
+
+### Delete one label
+DELETE {{endpoint}}/labels/6
+{{token}}
+
+### Error token
+GET {{endpoint}}/labels
+
+
+
+
+### signout
+GET {{endpoint}}/auth/signout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo

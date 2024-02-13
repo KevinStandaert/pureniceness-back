@@ -1,0 +1,53 @@
+@endpoint=http://localhost:4000/api/admin
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
+
+
+### Get All tracks
+GET {{endpoint}}/tracks
+{{token}}
+
+### Add one track
+POST {{endpoint}}/tracks
+{{token}}
+Content-Type: application/json
+
+{
+    "name": "Track 1586",
+    "year": 1782,
+    "url_image": "http://url_image_track.com",
+    "url_sound": "http://url_sound_track.com",
+    "listening": 0,
+    "duration": 365,
+    "style": "Rock",
+    "album_id": 3
+}
+
+
+### Get one track
+GET {{endpoint}}/tracks/12
+{{token}}
+
+### Modify one track
+PATCH {{endpoint}}/tracks/12
+{{token}}
+Content-Type: application/json
+
+{
+  "name": "truck track",
+  "duration": 52
+  
+}
+
+### Delete one track
+DELETE {{endpoint}}/tracks/11
+{{token}}
+
+### Error token
+GET {{endpoint}}/tracks
+
+
+
+
+### signout
+GET {{endpoint}}/auth/signout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo

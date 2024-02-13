@@ -15,9 +15,9 @@ export default class Controller {
     return res.status(200).json(row);
   }
 
-  static async create({ body }) {
+  static async create({ body }, res) {
     const row = await this.datamapper.insert(body);
-    return row;
+    res.status(200).json(row);
   }
 
   static async update({ params, body }, res, next) {

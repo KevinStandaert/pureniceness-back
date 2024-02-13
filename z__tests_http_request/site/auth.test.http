@@ -23,7 +23,8 @@ Content-Type: application/json
   "address": "dfgdfg",
   "zipcode": "dgdfg",
   "city": "dfgdg",
-  "country": "dgdfg"
+  "country": "dgdfg",
+  "role": "user"
 }
 
 ### signout
