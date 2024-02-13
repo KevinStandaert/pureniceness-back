@@ -14,8 +14,7 @@ CREATE OR REPLACE FUNCTION "create_user"(data json) RETURNS "user" AS $$
     "address", 
     "zipcode", 
     "city",
-    "country",
-    "role"
+    "country"
   ) VALUES (
     data->>'email',
     data->>'password',
@@ -25,8 +24,7 @@ CREATE OR REPLACE FUNCTION "create_user"(data json) RETURNS "user" AS $$
     data->>'address',
     data->>'zipcode',
     data->>'city',
-    data->>'country',
-    data->>'role'
+    data->>'country'
   )
   RETURNING *;
 
