@@ -9,6 +9,7 @@ export default class UserController extends CoreController {
   static async getOneUserWithLikes(req, res, next) {
     const { id } = req.params;
     const { userId } = req.user;
+    // parsing and comparing the id and userId
     const isEqual = parseIntAndCompare(id, userId);
     if (!isEqual) {
       const err = new ApiError(
