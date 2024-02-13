@@ -2,48 +2,48 @@
 @token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
 
 
-### Get All artists
-GET {{endpoint}}/artists
+### Get All events
+GET {{endpoint}}/events
 {{token}}
 
-### Add one artist
-POST {{endpoint}}/artists
+### Add one event
+POST {{endpoint}}/events
 {{token}}
 Content-Type: application/json
 
 {
-  "firstname": "albert",
-  "lastname": "einstein",
-  "nickname": "alberito",
-  "year": "1879",
-  "city":"wurtemberg" ,
-  "country":"allemagne" ,
-  "description": "Lorem ipsum dolor sit amet. Est delectus autem et ipsum ipsa rem corrupti totam vel quas molestiae et rerum suscipit. Ut quia vitae sed porro sunt sit vero repudiandae vel corrupti quis hic obcaecati fugit.",
-  "function":"guitariste" ,
+  "name": "dubFolie ",
+  "type": "concert",
+  "description": "Lorem ipsum dolor sit amet. Est delectus autem et ipsum ",
+  "starting_date": "2024-06-30T22:00:00.000Z",
+  "ending_date":"2024-07-02T22:00:00.000Z" ,
+  "city":"Paris" ,
+  "country": "france",
+  "location":"folies bergere" ,
   "url_image": "http://image.net"
 }
 
 
-### Get one artist
-GET {{endpoint}}/artists/13
+### Get one event
+GET {{endpoint}}/events/16
 {{token}}
 
-### Modify one artist
-PATCH {{endpoint}}/artists/13
+### Modify one event
+PATCH {{endpoint}}/events/13
 {{token}}
 Content-Type: application/json
 
 {
-  "nickname": "space_cake",
+  "type": "pogo",
   "country": "autriche"
 }
 
-### Delete one artist
-DELETE {{endpoint}}/artists/11
+### Delete one event
+DELETE {{endpoint}}/events/11
 {{token}}
 
 ### Error token
-GET {{endpoint}}/artists
+GET {{endpoint}}/albums
 
 
 
