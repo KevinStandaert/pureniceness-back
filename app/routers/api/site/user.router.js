@@ -4,6 +4,7 @@ import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import userCreateSchema from '../../../schemas/user.create.schema.js';
 import userUpdateSchema from '../../../schemas/user.update.schema.js';
+import authenticateToken from '../../../middlewares/authenticate.token.js';
 
 const userRouter = express.Router();
 
@@ -65,6 +66,7 @@ userRouter
 
 userRouter.route('/:id(\\d+)/likes')
   .get(
+    authenticateToken,
     controllerWrapper(userController.getOneUserWithLikes.bind(userController)),
   );
 
