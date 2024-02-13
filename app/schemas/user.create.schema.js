@@ -14,6 +14,7 @@ const createUserSchema = Joi.object({
   zipcode: Joi.string().trim().required().error(new Error('Le code postal est obligatoire')),
   city: Joi.string().required().error(new Error('La ville est obligatoire')),
   country: Joi.string().trim().required().error(new Error('Le pays est obligatoire')),
+  role: Joi.string().trim().required().error(new Error('Le rôle est obligatoire')),
 });
 
 export default createUserSchema;

@@ -14,7 +14,8 @@ CREATE OR REPLACE FUNCTION "create_user"(data json) RETURNS "user" AS $$
     "address", 
     "zipcode", 
     "city",
-    "country"
+    "country",
+    "role"
   ) VALUES (
     data->>'email',
     data->>'password',
@@ -24,7 +25,8 @@ CREATE OR REPLACE FUNCTION "create_user"(data json) RETURNS "user" AS $$
     data->>'address',
     data->>'zipcode',
     data->>'city',
-    data->>'country'
+    data->>'country',
+    data->>'role'
   )
   RETURNING *;
 
@@ -42,6 +44,7 @@ CREATE OR REPLACE FUNCTION "update_user"(data json) RETURNS "user" AS $$
     "zipcode" = COALESCE(data->>'zipcode', "zipcode"),
     "city" = COALESCE(data->>'city', "city"),
     "country" = COALESCE(data->>'country', "country"),
+    "role" = COALESCE(data->>'role', "role"),
     "updated_at" = now()
   WHERE id = (data->>'id')::int
   RETURNING *;
