@@ -21,7 +21,7 @@ VALUES
 -- Insertion de données dans la table USER
 INSERT INTO "user" ("email", "password", "firstname", "lastname", "birthdate", "address", "zipcode", "city", "country")
 VALUES
-('admin@admin.com', '12345678', 'John', 'Doe', '1990-05-15', '123 Street', '12345', 'Paris', 'France'),
+('user1@example.com', 'password1', 'John', 'Doe', '1990-05-15', '123 Street', '12345', 'Paris', 'France'),
 ('user2@example.com', 'password2', 'Jane', 'Smith', '1985-10-20', '456 Avenue', '67890', 'Berlin', 'Allemagne'),
 ('user3@example.com', 'password3', 'Michael', 'Johnson', '1992-03-10', '789 Road', '54321', 'New York', 'USA'),
 ('user4@example.com', 'password4', 'Anna', 'Brown', '1988-07-25', '101 Boulevard', '98765', 'London', 'UK'),
