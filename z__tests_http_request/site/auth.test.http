@@ -14,7 +14,7 @@ POST {{endpoint}}/auth/signup
 Content-Type: application/json
 
 {
-  "email": "tegstt@test.fr",
+  "email": "testt@test.fr",
   "password": "12341234",
   "passwordConfirm": "12341234",
   "firstname": "dfgdfg",
