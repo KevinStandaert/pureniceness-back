@@ -1,5 +1,5 @@
 @endpoint=http://localhost:4000/api
-
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3OTE0MDk0LCJleHAiOjE3MDg1MTg4OTR9.POwO4h1zo9TMrLcsr96HlirqLEUuU_3xXlMYoe4meuI
 ### get all User
 GET {{endpoint}}/users
 
@@ -9,20 +9,20 @@ GET {{endpoint}}/users/8
 ### error404 Not found
 GET {{endpoint}}/users/dfgfg
 
-### error404 Not found
-DELETE {{endpoint}}/users/hg
+### error401 User not connected try to delete user
+DELETE {{endpoint}}/users/1
 
 ### delete User by id (first in auth.test signup then signin then copy the token and copy it after Bearer)
-DELETE {{endpoint}}/users/11
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODMzNTQ2LCJleHAiOjE3MDg0MzgzNDZ9.ZfOWlhqEEOtJSMp22905C7kO3laDtXV8iraYvcGW0PI
+DELETE {{endpoint}}/users/1
+{{token}}
 
 ### error404 Not found for connected user
 DELETE {{endpoint}}/users/10000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODI2ODEzLCJleHAiOjE3MDg0MzE2MTN9.U5oU25gi3ljzqVnHpBnjqe4Efc-4rh0z9ZqF-1JvkTY
+{{token}}
 
 ### update User for connected user
 PATCH {{endpoint}}/users/11
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODMzOTQxLCJleHAiOjE3MDg0Mzg3NDF9.40EaH9Z7tCbqDr4UEEjW9p2SZE5WgXGITDLnMCpIle8
+{{token}}
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 
 ### get one user with likes for connected user
 get {{endpoint}}/users/13/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJlbWFpbCI6InRlc3R0QHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3ODI2ODEzLCJleHAiOjE3MDg0MzE2MTN9.U5oU25gi3ljzqVnHpBnjqe4Efc-4rh0z9ZqF-1JvkTY
+{{token}}

@@ -1,3 +1,6 @@
+import ApiError from '../errors/api.error.js';
+import parseIntAndCompare from '../utils/parseint.compare.js';
+
 export default class Controller {
   static datamapper;
 
@@ -20,16 +23,38 @@ export default class Controller {
     res.status(200).json(row);
   }
 
-  static async update({ params, body }, res, next) {
+  static async update({ params, body, user }, res, next) {
     const { id } = params;
+    const { userId } = user;
+    const { role: userRole } = user;
+    // admin can modify
+    if (userRole === 'admin') {
+      const dbData = await this.datamapper.findByPk(id);
+      if (!dbData) {
+        return next();
+      }
+      const data = { ...dbData, ...body };
+      const row = await this.datamapper.update(data);
+      if (!row) {
+        return next();
+      }
+      return res.status(200).json(row);
+    }
+    // user connected can modify only its infos
+    // parsing and comparing the id and userId
+    const isEqual = parseIntAndCompare(id, userId);
+    if (!isEqual) {
+      const err = new ApiError(
+        'Vous n\'avez pas les droits pour accéder à ces informations',
+        { httpStatus: 403 },
+      );
+      return next(err);
+    }
     const dbData = await this.datamapper.findByPk(id);
-
     if (!dbData) {
       return next();
     }
-
     const data = { ...dbData, ...body };
-
     const row = await this.datamapper.update(data);
     if (!row) {
       return next();
@@ -37,8 +62,28 @@ export default class Controller {
     return res.status(200).json(row);
   }
 
-  static async delete({ params }, res, next) {
+  static async delete({ params, user }, res, next) {
     const { id } = params;
+    const { userId } = user;
+    const { role: userRole } = user;
+    // admin can modify
+    if (userRole === 'admin') {
+      const deleted = await this.datamapper.delete(id);
+      if (!deleted) {
+        return next();
+      }
+      return res.status(204).json();
+    }
+    // user connected can modify only its infos
+    // parsing and comparing the id and userId
+    const isEqual = parseIntAndCompare(id, userId);
+    if (!isEqual) {
+      const err = new ApiError(
+        'Vous n\'avez pas les droits pour accéder à ces informations',
+        { httpStatus: 403 },
+      );
+      return next(err);
+    }
     const deleted = await this.datamapper.delete(id);
     if (!deleted) {
       return next();
