@@ -1,6 +1,5 @@
 import express from 'express';
 import ApiError from '../../../errors/api.error.js';
-import authenticateToken from '../../../middlewares/authenticate.token.js';
 import apiUserRouter from './user.router.js';
 import apiAuthRouter from './auth.router.js';
 import apiLabelRouter from './label.router.js';
@@ -11,7 +10,7 @@ import apiTrackRouter from './track.router.js';
 
 const apiSiteRouter = express.Router();
 
-apiSiteRouter.use('/users', authenticateToken, apiUserRouter);
+apiSiteRouter.use('/users', apiUserRouter);
 
 apiSiteRouter.use('/auth', apiAuthRouter);
 
