@@ -9,7 +9,7 @@ trackRouter.route('/')
 /**
  * GET /api/tracks
  * @summary Get all tracks
- * @tags Track
+ * @tags Tracks
  * @return {Track[]} 200 - success response - application/json
  * @return {ApiJsonError} 400 - Bad request response - application/json
  * @return {ApiJsonError} 500 - Internal Server Error - application/json
@@ -22,7 +22,7 @@ trackRouter.route('/:id(\\d+)')
 /**
    * GET /api/albums/{id}
    * @summary Get a track by id
-   * @tags Track
+   * @tags Tracks
    * @param {number} id.path.required - track id
    * @return {Track} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
@@ -37,7 +37,7 @@ trackRouter.route('/:id(\\d+)/artists')
 /**
    * GET /api/tracks/{id}/artists
    * @summary Get track with artists
-   * @tags Track
+   * @tags Tracks
    * @return {Track} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
@@ -50,7 +50,7 @@ trackRouter.route('/:id(\\d+)/likes')
 /**
    * GET /api/tracks/{id}/likes
    * @summary User add like to one Track
-   * @tags Track
+   * @tags Tracks
    * @return {Track} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json

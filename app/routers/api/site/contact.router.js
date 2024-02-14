@@ -11,7 +11,7 @@ contactRouter
   /**
    * POST /api/contact
    * @summary Post a message
-   * @tags Contact
+   * @tags Contacts
    * @param {userInput} request.body.required - user info
    * @return {User[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json

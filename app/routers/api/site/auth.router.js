@@ -13,7 +13,7 @@ authRouter.route('/signout')
   /**
    * GET /api/auth/signout
    * @summary Disconnect user
-   * @tags Users
+   * @tags Authentification
    * @return {object} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json

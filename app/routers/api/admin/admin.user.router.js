@@ -9,18 +9,18 @@ const adminUserRouter = express.Router();
 
 adminUserRouter.route('/')
   /**
-   * GET /api/users
+   * GET /api/admin/users
    * @summary Get all users
-   * @tags Users
+   * @tags Admin Users
    * @return {User[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
   .get(controllerWrapper(userController.getAll.bind(userController)))
   /**
-   * POST /api/users
+   * POST /api/admin/users
    * @summary Create a new user
-   * @tags Users
+   * @tags Admin Users
    * @param {userInput} request.body.required - user info
    * @return {User} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
@@ -33,9 +33,9 @@ adminUserRouter.route('/')
 
 adminUserRouter.route('/:id(\\d+)')
   /**
-   * GET /api/users/{id}
+   * GET /api/admin/users/{id}
    * @summary Get a user from its id
-   * @tags Users
+   * @tags Admin Users
    * @param {number} id.path.required - user id
    * @return {User} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
@@ -44,9 +44,9 @@ adminUserRouter.route('/:id(\\d+)')
    */
   .get(controllerWrapper(userController.getByPk.bind(userController)))
   /**
-   * PATCH /api/users/{id}
+   * PATCH /api/admin/users/{id}
    * @summary Update a user
-   * @tags Users
+   * @tags Admin Users
    * @param {number} id.path.required - user id
    * @param {userInput} request.body.required - user info
    * @return {User} 200 - success response - application/json
@@ -59,9 +59,9 @@ adminUserRouter.route('/:id(\\d+)')
     controllerWrapper(userController.update.bind(userController)),
   )
   /**
-   * DELETE /api/users/{id}
+   * DELETE /api/admin/users/{id}
    * @summary Delete a user
-   * @tags Users
+   * @tags Admin Users
    * @param {number} id.path.required - user id
    * @return {User} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json

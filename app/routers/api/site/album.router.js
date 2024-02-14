@@ -9,7 +9,7 @@ albumRouter
   /**
    * GET /api/albums
    * @summary Get all albums
-   * @tags Album
+   * @tags Albums
    * @return {Album[]} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
@@ -23,7 +23,7 @@ albumRouter
   /**
    * GET /api/albums/{id}
    * @summary Get an album by id
-   * @tags Album
+   * @tags Albums
    * @param {number} id.path.required - album id
    * @return {Album} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
@@ -37,7 +37,7 @@ albumRouter
   /**
    * GET /api/albums/{id}/tracks
    * @summary Get all tracks of one album
-   * @tags Album
+   * @tags Albums
    * @return {Album} 200 - success response - application/json
    * @return {ApiJsonError} 400 - Bad request response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
