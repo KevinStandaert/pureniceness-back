@@ -49,6 +49,7 @@ userRouter
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
   .patch(
+    authenticateToken,
     validationMiddleware('body', userUpdateSchema),
     controllerWrapper(userController.update.bind(userController)),
   )
@@ -62,7 +63,10 @@ userRouter
    * @return {ApiJsonError} 404 - Not found response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
-  .delete(controllerWrapper(userController.delete.bind(userController)));
+  .delete(
+    authenticateToken,
+    controllerWrapper(userController.delete.bind(userController)),
+  );
 
 userRouter.route('/:id(\\d+)/likes')
   .get(
