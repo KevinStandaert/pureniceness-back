@@ -26,3 +26,6 @@ GET {{endpoint}}/labels/1/socials
 
 ### error404 Not found
 GET {{endpoint}}/labels/1000/socials
+
+### get all labels with their socials
+GET {{endpoint}}/labels/socials

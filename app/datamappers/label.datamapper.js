@@ -37,4 +37,9 @@ export default class LabelDatamapper extends CoreDatamapper {
     const result = await client.query('SELECT * FROM "labels_with_socials" WHERE "id" = $1', [id]);
     return result.rows[0];
   }
+
+  static async findAllLabelsWithSocials() {
+    const result = await client.query('SELECT * FROM "labels_with_socials"');
+    return result.rows;
+  }
 }

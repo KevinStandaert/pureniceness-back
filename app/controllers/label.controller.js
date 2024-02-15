@@ -45,4 +45,16 @@ export default class LabelController extends CoreController {
     }
     return res.status(200).json(oneLabelWithSocials);
   }
+
+  static async getAllLabelsWithsocials(req, res, next) {
+    const labelsWithSocials = await this.datamapper.findAllLabelsWithSocials();
+    if (!labelsWithSocials) {
+      const err = new ApiError(
+        'Aucun label n\'a été trouvé',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(200).json(labelsWithSocials);
+  }
 }
