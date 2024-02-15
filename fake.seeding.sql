@@ -3,9 +3,13 @@ BEGIN;
 -- Insertion de données dans la table LABEL
 INSERT INTO "label" ("name", "year", "city", "country", "description", "url_image")
 VALUES
-('Label 1', 2005, 'Paris', 'France', 'Description du label 1', 'url_image_label_1'),
-('Label 2', 2010, 'Berlin', 'Allemagne', 'Description du label 2', 'url_image_label_2'),
-('Label 3', 2015, 'New York', 'USA', 'Description du label 3', 'url_image_label_3');
+('King Hi-Fi Sound System', 2005, 'Paris', 'France', 'King HiFi is a Sound System based in Lyon city, France. The King HiFi Family is the gathering of King HiFi (dOpeShack Selectah and Keryo Operatah) and the KPC, crew of youngproducers and deejay from Lyon city (Cooka, the riddim Chef, likkle ferguson and Ganka, the raggamuffin soldiers).
+Our selection ranges from the early 70’s roots revival niceness to the latest cosmic warrior steppers - and even reggae influenced dubstep mash-ups - through all digital and dubwise styles from the 80’s and 90’s. What we will play will essentially depend on the vibes and the sounds we play with. We play dubplates, specials, and our own production made on our label KPC and mixed by the mighty Crystal Mixage outta Paris City.', '/images/logo_khf.jpg'),
+('Pure Niceness Records', 2010, 'Berlin', 'Allemagne', 'Our main mission is to promote Reggae and dUb music, but we would also like to support bass culture in general - dubstep, drum and bass, jungle, globalbass... - by allowing artists from these scenes to play on a system built for this purpose.
+So the first thing we do is organise our own events, playing strictly dubwise style and invinting special guests (other sound systems, singers…) to share the vibes with us. We are also ready to come and nice up your festivals and concerts with our sound system, selections and vibrations.
+On the other hand the system is up for hire if you want the required power, bass and sound quality for your party to be a success.', '/images/logo_pureniceness.jpeg'),
+('Mental Stamina Records', 2015, 'New York', 'USA', 'Côté label King Hi-Fi Sound System, petit frère de Pure Niceness Records.
+Des influences allant de l’Afrika Bambaataa à Jah Shaka', '/images/logo_mental_stamina.jpg');
 
 -- Insertion de données dans la table SOCIAL
 INSERT INTO "social" ("name", "url", "label_id")
