@@ -7,11 +7,13 @@ export default class CoreDatamapper {
 
   static async findAll() {
     const result = await client.query(`SELECT * FROM "${this.readTableName}"`);
-    return result.rows;
+    const resultWithoutPassword = result.rows.map(({ password, ...rest }) => rest);
+    return resultWithoutPassword;
   }
 
   static async findByPk(id) {
     const result = await client.query(`SELECT * FROM "${this.readTableName}" WHERE "id" = $1`, [id]);
+    delete result.rows[0].password;
     return result.rows[0];
   }
 
