@@ -23,18 +23,11 @@ VALUES
 ('Instagram', 'https://instagram.com/label3', 3);
 
 -- Insertion de données dans la table USER
-INSERT INTO "user" ("email", "password", "firstname", "lastname", "birthdate", "address", "zipcode", "city", "country")
+INSERT INTO "user" ("email", "password", "firstname", "lastname", "birthdate", "address", "zipcode", "city", "country", "role")
 VALUES
-('user1@example.com', 'password1', 'John', 'Doe', '1990-05-15', '123 Street', '12345', 'Paris', 'France'),
-('user2@example.com', 'password2', 'Jane', 'Smith', '1985-10-20', '456 Avenue', '67890', 'Berlin', 'Allemagne'),
-('user3@example.com', 'password3', 'Michael', 'Johnson', '1992-03-10', '789 Road', '54321', 'New York', 'USA'),
-('user4@example.com', 'password4', 'Anna', 'Brown', '1988-07-25', '101 Boulevard', '98765', 'London', 'UK'),
-('user5@example.com', 'password5', 'Alex', 'Taylor', '1995-12-01', '202 Avenue', '13579', 'Tokyo', 'Japon'),
-('user6@example.com', 'password6', 'Sophie', 'Garcia', '1983-09-05', '303 Street', '24680', 'Moscow', 'Russie'),
-('user7@example.com', 'password7', 'Daniel', 'Martinez', '1998-01-20', '505 Road', '97531', 'Sydney', 'Australie'),
-('user8@example.com', 'password8', 'Emma', 'White', '1993-04-30', '707 Boulevard', '36912', 'Rio de Janeiro', 'Brésil'),
-('user9@example.com', 'password9', 'David', 'Lee', '1980-08-18', '909 Avenue', '75369', 'Cape Town', 'Afrique du Sud'),
-('user10@example.com', 'password10', 'Sophia', 'Lopez', '1986-11-12', '111 Street', '58246', 'Toronto', 'Canada');
+('ap@ap.fr', '$2b$10$XTV8HIHZW9whxIhEJlgCO.gcZKZktIHVNOe.8AkeKXs7mdiw3hEja', 'dfgdfg', 'dfgdfg', '1992-01-26', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'admin'),
+('u1@u1.fr', '$2b$10$Ap2zBu/SjjgL3.bk3glXZubGCHnEq04UfDDVPlwnV3b9a3qzOKhre', 'dfgdfg', 'dfgdfg', '1992-01-26', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'user'),
+('u2@u2.fr', '$2b$10$o8vggPTQbqTMS1vzDPALk.f24v4/BS99a7Vetfk2TwniupWRYxJXK', 'dfgdfg', 'dfgdfg', '1992-01-26', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'user');
 
 -- Insertion de données dans la table EVENT
 INSERT INTO "event" ("name", "type", "description", "starting_date", "ending_date", "city", "country", "location", "url_image")
@@ -95,16 +88,10 @@ VALUES
 -- Insertion de données dans la table USER_LIKE_TRACK
 INSERT INTO "user_like_track" ("user_id", "track_id")
 VALUES
-(1, 1),
-(1, 2),
 (2, 1),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9);
+(2, 2),
+(3, 4),
+(3, 5);
 
 -- Insertion de données dans la table TRACK_HAS_ARTIST
 INSERT INTO "track_has_artist" ("track_id", "artist_id", "role", "order")

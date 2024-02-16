@@ -68,6 +68,14 @@ export default class Controller {
     const { role: userRole } = user;
     // admin can modify
     if (userRole === 'admin') {
+      // admin can't delete the main admin account
+      if (parseInt(id, 10) === 1) {
+        const err = new ApiError(
+          'Vous ne pouvez pas supprimer ces informations, seule la modification est possible',
+          { httpStatus: 423 },
+        );
+        return next(err);
+      }
       const deleted = await this.datamapper.delete(id);
       if (!deleted) {
         return next();
