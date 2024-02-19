@@ -19,8 +19,8 @@ VALUES
 ('Youtube', 'https://www.youtube.com/@KingHiFiSoundSystemOfficial/featured', 1),
 ('Facebook', 'https://www.facebook.com/pure.niceness.records', 2),
 ('SoundCloud', 'https://soundcloud.com/purenicenessrecords', 2),
-('Facebook', 'https://www.facebook.com/king.hi.fi', 3),
-('SoundCloud', 'https://soundcloud.com/kinghifi', 3);
+('Facebook', 'https://www.facebook.com/mentalstamina', 3),
+('SoundCloud', 'https://soundcloud.com/mentalstaminarecords', 3);
 
 -- Insertion de données dans la table USER
 INSERT INTO "user" ("email", "password", "firstname", "lastname", "birthdate", "address", "zipcode", "city", "country", "role")
@@ -46,9 +46,9 @@ VALUES
 -- Insertion de données dans la table ALBUM
 INSERT INTO "album" ("name", "year", "url_image", "type", "label_id")
 VALUES
-('Album 1', 2020, 'url_image_album_1', 'Studio', 1),
-('Album 2', 2018, 'url_image_album_2', 'Live', 2),
-('Album 3', 2017, 'url_image_album_3', 'Studio', 3),
+('Album 1', 2020, 'https://i1.sndcdn.com/artworks-CsCv3OyH62pcGyyD-BHBhRg-t500x500.jpg', 'Studio', 1),
+('Album 2', 2018, 'https://i1.sndcdn.com/artworks-f013fIIancUymIB9-W5QQbw-t500x500.jpg', 'Live', 2),
+('Album 3', 2017, 'https://i1.sndcdn.com/artworks-pXqzBDk5DrNOfXjJ-4rdJCQ-t500x500.jpg', 'Studio', 3),
 ('Album 4', 2019, 'url_image_album_4', 'Live', 2),
 ('Album 5', 2015, 'url_image_album_5', 'Studio', 1),
 ('Album 6', 2014, 'url_image_album_6', 'Live', 3),
@@ -74,9 +74,9 @@ VALUES
 -- Insertion de données dans la table TRACK
 INSERT INTO "track" ("name", "year", "url_image", "url_sound", "duration", "style", "album_id")
 VALUES
-('Track 1', 2020, 'url_image_track_1', 'url_sound_track_1', 240, 'Rock', 1),
-('Track 2', 2018, 'url_image_track_2', 'url_sound_track_2', 180, 'Pop', 2),
-('Track 3', 2017, 'url_image_track_3', 'url_sound_track_3', 210, 'Jazz', 3),
+('Track 1', 2022, 'https://i1.sndcdn.com/artworks-CsCv3OyH62pcGyyD-BHBhRg-t500x500.jpg', '/sound/KHF.mp3', 240, 'Dub', 1),
+('Track 2', 2020, 'https://i1.sndcdn.com/artworks-f013fIIancUymIB9-W5QQbw-t500x500.jpg', '/sound/PNR.mp3', 180, 'Dub', 2),
+('Track 3', 2023, 'https://i1.sndcdn.com/artworks-pXqzBDk5DrNOfXjJ-4rdJCQ-t500x500.jpg', '/sound/MSR.mp3', 210, 'Dub', 3),
 ('Track 4', 2019, 'url_image_track_4', 'url_sound_track_4', 200, 'Blues', 1),
 ('Track 5', 2015, 'url_image_track_5', 'url_sound_track_5', 220, 'Electronic', 2),
 ('Track 6', 2014, 'url_image_track_6', 'url_sound_track_6', 190, 'Hip-Hop', 3),
