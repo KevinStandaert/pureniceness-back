@@ -36,7 +36,10 @@ userRouter
    * @return {ApiJsonError} 404 - Not found response - application/json
    * @return {ApiJsonError} 500 - Internal Server Error - application/json
    */
-  .get(controllerWrapper(userController.getByPk.bind(userController)))
+  .get(
+    authenticateToken,
+    controllerWrapper(userController.getByPk.bind(userController)),
+  )
   /**
    * PATCH /api/users/{id}
    * @summary Update a user
