@@ -17,7 +17,7 @@ const createEventSchema = Joi.object({
     .error(new Error('Le pays de l\'événement est obligatoire et doit être une chaîne de caractères')),
   location: Joi.string().required()
     .error(new Error('L\'emplacement de l\'événement est obligatoire et doit être une chaîne de caractères')),
-  url_image: Joi.string().uri().required()
+  url_image: Joi.string().required()
     .error(new Error('L\'URL de l\'image de l\'événement est obligatoire et doit être une URL valide')),
 });
 
