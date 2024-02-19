@@ -16,7 +16,7 @@ INSERT INTO "social" ("name", "url", "label_id")
 VALUES
 ('Facebook', 'https://www.facebook.com/king.hi.fi', 1),
 ('SoundCloud', 'https://soundcloud.com/kinghifi', 1),
-('Youtube'), 'https://www.youtube.com/@KingHiFiSoundSystemOfficial/featured',
+('Youtube', 'https://www.youtube.com/@KingHiFiSoundSystemOfficial/featured', 1),
 ('Facebook', 'https://www.facebook.com/pure.niceness.records', 2),
 ('SoundCloud', 'https://soundcloud.com/purenicenessrecords', 2),
 ('Facebook', 'https://www.facebook.com/king.hi.fi', 3),
