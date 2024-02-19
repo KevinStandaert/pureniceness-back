@@ -8,7 +8,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "db:reset": "sqitch revert -y; sqitch deploy; psql -d pureniceness -f fake.seeding.sql*",
+    "db:reset": "sqitch revert -y; sqitch deploy; psql -d pureniceness -f semireal.seeding.sql*",
     "dev": "DEBUG=app:* npx nodemon"
   },
   "keywords": [],
