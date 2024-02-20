@@ -44,8 +44,37 @@ export default class UserDatamapper extends CoreDatamapper {
     return result.rows[0];
   }
 
+  static async userAlbumInfosForTracksLiked(id) {
+    const result = await client.query(`
+    SELECT DISTINCT ON (track."album_id") album.*
+    FROM "user_like_track" AS user_like
+    JOIN "track" ON user_like."track_id" = track."id"
+    JOIN "album" ON track."album_id" = album."id"
+    WHERE user_like."user_id" = $1;
+    `, [id]);
+    return result.rows;
+  }
+
   static async userTracksLiked(id) {
-    const result = await client.query('SELECT * FROM "user_link_with_track" WHERE "user_id" = $1', [id]);
-    return result.rows[0];
+    const result = await client.query(`
+    SELECT
+      "user"."id" AS "user_id",
+      "track".*,
+      "album"."id" AS "album_id",
+      "album"."name" AS "album_name",
+      "album"."year" AS "album_year",
+      "album"."url_image" AS "url_image_album",
+      "album"."type" AS "type_album"
+    FROM
+      "user_like_track"
+    JOIN
+      "user" ON "user_like_track"."user_id" = "user"."id"
+    JOIN
+      "track" ON "user_like_track"."track_id" = "track"."id"
+    JOIN
+      "album" ON "track"."album_id" = "album"."id"
+    WHERE
+      "user"."id" = $1`, [id]);
+    return result.rows;
   }
 }
