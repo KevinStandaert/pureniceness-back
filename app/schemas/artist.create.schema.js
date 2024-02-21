@@ -20,15 +20,6 @@ const createArtistSchema = Joi.object({
     .error(new Error('La fonction de l\'artiste est requise et doit être une chaîne de caractères')),
   url_image: Joi.string().required()
     .error(new Error('L\'URL de l\'image de l\'artiste est requise et doit être une URI valide')),
-  // url_image_file: Joi.any()
-  //   .custom((value, helpers) => {
-  //     if (!value || !value.name.match(/\.(jpg|jpeg|png)$/)) {
-  //       return helpers.error('Format invalide. Seulement les fichiers de type JPG, JPEG, ou PNG sont autorisés');
-  //     }
-  //     return value;
-  //   }, 'custom validation')
-  //   .required()
-  //   .error(new Error("L'image de l'artiste est requise")),
 });
 
 export default createArtistSchema;

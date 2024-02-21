@@ -6,9 +6,9 @@ const createTrackSchema = Joi.object({
   year: Joi.number().integer().min(1000).max(9999)
     .required()
     .error(new Error('L\'année de sortie de la musique est requise et doit être au format YYYY')),
-  url_image: Joi.string().uri().required()
+  url_image: Joi.string().required()
     .error(new Error('L\'URL de l\'image de la musique est requise et doit être une URI valide')),
-  url_sound: Joi.string().uri().required()
+  url_sound: Joi.string().required()
     .error(new Error('L\'URL du son de la musique est requise et doit être une URI valide')),
   duration: Joi.number().integer().positive().required()
     .error(new Error('La durée de la musique en seconde est requise et doit être un entier positif')),

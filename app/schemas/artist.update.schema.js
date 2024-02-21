@@ -17,8 +17,8 @@ const updateArtistSchema = Joi.object({
     .error(new Error('La description de l\'artiste doit être une chaîne de caractères')),
   function: Joi.string()
     .error(new Error('La fonction de l\'artiste doit être une chaîne de caractères')),
-  url_image: Joi.string().uri()
-    .error(new Error('L\'URL de l\'image de l\'artiste doit être une URI valide')),
+  url_image: Joi.string()
+    .error(new Error('L\'URL de l\'image de l\'artiste et doit être une URL valide')),
 }).required().min(1).error(new Error('Au moins un champ doit être spécifié pour la mise à jour'));
 
 export default updateArtistSchema;

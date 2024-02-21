@@ -18,7 +18,7 @@ const updateEventSchema = Joi.object({
   location: Joi.string()
     .error(new Error('L\'emplacement de l\'événement doit être une chaîne de caractères')),
   url_image: Joi.string()
-    .error(new Error('L\'URL de l\'image de l\'événement doit être une URl valide')),
+    .error(new Error('L\'URL de l\'image de l\'événement et doit être une URI valide')),
 }).required().min(1).error(new Error('Au moins un champ doit être spécifié pour la mise à jour'));
 
 export default updateEventSchema;
