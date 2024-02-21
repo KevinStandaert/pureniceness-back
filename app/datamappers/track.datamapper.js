@@ -14,6 +14,18 @@ export default class TrackDatamapper extends CoreDatamapper {
   }
 
   static async addLike(userId, trackId) {
+    // Check if the user has already liked the track and if exist we delete the like
+    const ifExist = await client.query('SELECT * FROM "user_like_track" WHERE user_id = $1 AND track_id = $2', [userId, trackId]);
+    if (ifExist.rows.length > 0) {
+      const result = await client.query(
+        'DELETE FROM "user_like_track" WHERE user_id = $1 AND track_id = $2',
+        [
+          userId, trackId,
+        ],
+      );
+      return result.rowCount;
+    }
+    // If the user has not liked the track, we add the like
     const result = await client.query(
       'SELECT * FROM "add_like"($1)',
       [
