@@ -1,11 +1,11 @@
-// corsMiddleware.js
 import cors from 'cors';
 
 // Middleware CORS
 const corsOptions = {
-  origin: '*', // Liste des domaines autorisés
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Méthodes HTTP autorisées
-  // allowedHeaders: ['Content-Type', 'Authorization'], // En-têtes autorisés
+  origin: ['http://localhost:5173'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  exposedHeaders: ['Content-Disposition'],
 };
 
 const corsMiddleware = cors(corsOptions);
