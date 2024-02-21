@@ -17,7 +17,6 @@ function authenticateToken(req, res, next) {
     );
     return next(err); // No token, unauthorized access
   }
-
   jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
     // Check if the token exists in the database
     const tokenExist = await tokenDatamapper.findByToken(token);

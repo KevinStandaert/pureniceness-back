@@ -12,7 +12,7 @@ const updateLabelSchema = Joi.object({
   description: Joi.string()
     .error(new Error('La description doit être une chaîne de caractères')),
   url_image: Joi.string()
-    .error(new Error('L\'URL de l\'image doit être une chaîne de caractères')),
+    .error(new Error('L\'URL de l\'image du label est requise et doit être une URI valide')),
 }).required().min(1).error(new Error('Au moins un champ doit être spécifié pour la mise à jour'));
 
 export default updateLabelSchema;
