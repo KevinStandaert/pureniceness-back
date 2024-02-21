@@ -32,7 +32,7 @@ export default class TrackController extends CoreController {
       return next(err);
     }
     if (addLike === 1) {
-      return res.status(200).json('Suppression des favoris réussie');
+      return res.status(200).json('Suppression du favori réussie');
     }
     return res.status(200).json('Ajout aux favoris réussi');
   }
