@@ -6,10 +6,19 @@ import parseIntAndCompare from '../utils/parseint.compare.js';
 export default class UserController extends CoreController {
   static datamapper = UserDatamapper;
 
-  static async getByPk(req, res, next) {
-    const { id } = req.params;
-    const { userId } = req.user;
-    // user connected can modify only its infos
+  static async getByPk({ params, user }, res, next) {
+    const { id } = params;
+    const { userId } = user;
+    const { role: userRole } = user;
+    // admin can get all users
+    if (userRole === 'admin') {
+      const row = await this.datamapper.findByPk(id);
+      if (!row) {
+        return next();
+      }
+      return res.status(200).json(row);
+    }
+    // user connected can get only its infos
     // parsing and comparing the id and userId
     const isEqual = parseIntAndCompare(id, userId);
     if (!isEqual) {
@@ -29,7 +38,7 @@ export default class UserController extends CoreController {
   static async getOneUserWithLikes(req, res, next) {
     const { id } = req.params;
     const { userId } = req.user;
-    // user connected can modify only its infos
+    // user connected can get only its infos
     // parsing and comparing the id and userId
     const isEqual = parseIntAndCompare(id, userId);
     if (!isEqual) {
