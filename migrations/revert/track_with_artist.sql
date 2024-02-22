@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP VIEW "track_with_artist";
+DROP VIEW IF EXISTS "track_with_artist";
 
 COMMIT;

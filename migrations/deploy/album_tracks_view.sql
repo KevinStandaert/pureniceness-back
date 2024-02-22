@@ -1,4 +1,4 @@
--- Deploy pureniceness:album_tracks_view to pg
+-- Deploy pureniceness:album_tracks_view on pg
 
 BEGIN;
 

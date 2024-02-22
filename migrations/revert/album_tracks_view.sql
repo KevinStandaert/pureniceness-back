@@ -1,4 +1,4 @@
--- Revert pureniceness:album_tracks_view from pg
+-- Revert pureniceness:album_tracks_view on pg
 
 BEGIN;
 
