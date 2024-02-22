@@ -5,12 +5,10 @@ POST {{endpoint}}/contact
 Content-Type: application/json
 
 {
-  "from": "kplwww@gmail.com",
-  "to": "kplwww@gmail.com",
-  "email": "user@user.com",
-  "description": "Bonjour, j'ai un soucis avec ma commande XYZ2024 qui n'est pas arrivée",
-  "subject": "Salut!",
-  "html": "Vous avez reçu un message de "
+  "from": "user@user.com",
+  "message": "Bonjour, j'ai un soucis avec ma commande XYZ2024 qui n'est pas arrivée",
+  "subject": "Salut!"
+  
 }
 
 ### error404 Not found
