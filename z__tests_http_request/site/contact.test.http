@@ -5,8 +5,8 @@ POST {{endpoint}}/contact
 Content-Type: application/json
 
 {
-  "from": "jardon.c@free.fr",
-  "to": "jardon.c@free.fr",
+  "from": "kplwww@gmail.com",
+  "to": "kplwww@gmail.com",
   "email": "user@user.com",
   "description": "Bonjour, j'ai un soucis avec ma commande XYZ2024 qui n'est pas arrivée",
   "subject": "Salut!",

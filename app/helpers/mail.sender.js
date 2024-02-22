@@ -8,7 +8,7 @@ async function mailer(datas) {
     const transporter = nodemailer.createTransport({
       // intitialization of host, user and password of the "do not reply mail" (GLOBALCONTACTMAIL)
       host: process.env.MAILER_GLOBALHOST,
-      port: 465,
+      port: process.env.MAILER_PORT,
       secure: true,
       auth: {
         user: process.env.MAILER_GLOBALCONTACTMAIL,
