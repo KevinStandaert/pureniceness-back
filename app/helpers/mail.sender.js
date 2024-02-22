@@ -18,9 +18,12 @@ async function mailer(datas) {
     const datasToSend = datas;
     datasToSend.html = 'Vous avez recu un message de ';
     datasToSend.to = 'kplwww@gmail.com';
+    datasToSend.company = ' ';
     // if no error adding user email and the message description to datasToSend
     if (datas.type !== 'error') {
-      datasToSend.html += `${datas.from}\n${datas.message}`;
+      datasToSend.html += `${datas.from}\n
+      de l'entreprise: ${datas.company}\n
+      ${datas.message}`;
     }
     // calling nodeMailer sendMail() method with datas
     const emailSend = await transporter.sendMail(datasToSend);

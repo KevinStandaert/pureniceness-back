@@ -7,6 +7,7 @@ Content-Type: application/json
 {
   "from": "user@user.com",
   "message": "Bonjour, j'ai un soucis avec ma commande XYZ2024 qui n'est pas arrivée",
+  "company": "",
   "subject": "Salut!"
   
 }
