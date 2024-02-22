@@ -16,7 +16,7 @@ CREATE TYPE "album_with_tracks" AS (
 );
 
 -- Création de la fonction album_with_tracks_with_favorites
-CREATE OR REPLACE FUNCTION "album_with_tracks_with_favorites"(user_id INT) RETURNS SETOF "album_with_tracks" AS $$
+CREATE OR REPLACE FUNCTION "album_with_tracks_with_favorites"(INT) RETURNS SETOF "album_with_tracks" AS $$
   SELECT
     "album".*,
     json_agg(
@@ -32,7 +32,7 @@ CREATE OR REPLACE FUNCTION "album_with_tracks_with_favorites"(user_id INT) RETUR
         'album_id', "track"."album_id",
         'created_at', "track"."created_at",
         'updated_at', "track"."updated_at",
-        'liked', (SELECT EXISTS (SELECT 1 FROM "user_link_with_track" WHERE "user_id" = user_id AND "id" = "track"."id")
+        'liked', (SELECT EXISTS (SELECT 1 FROM "user_link_with_track" WHERE "user_id" = $1 AND "id" = "track"."id")
       ))
     ) AS "tracks"
     FROM
