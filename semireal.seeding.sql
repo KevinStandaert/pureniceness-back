@@ -49,13 +49,13 @@ VALUES
 ('Album 1', 2020, 'https://i1.sndcdn.com/artworks-CsCv3OyH62pcGyyD-BHBhRg-t500x500.jpg', 'Studio', 1),
 ('Album 2', 2018, 'https://i1.sndcdn.com/artworks-f013fIIancUymIB9-W5QQbw-t500x500.jpg', 'Live', 2),
 ('Album 3', 2017, 'https://i1.sndcdn.com/artworks-pXqzBDk5DrNOfXjJ-4rdJCQ-t500x500.jpg', 'Studio', 3),
-('Album 4', 2019, 'url_image_album_4', 'Live', 2),
-('Album 5', 2015, 'url_image_album_5', 'Studio', 1),
-('Album 6', 2014, 'url_image_album_6', 'Live', 3),
-('Album 7', 2016, 'url_image_album_7', 'Studio', 1),
-('Album 8', 2013, 'url_image_album_8', 'Live', 2),
-('Album 9', 2011, 'url_image_album_9', 'Studio', 3),
-('Album 10', 2012, 'url_image_album_10', 'Live', 1);
+('Album 4', 2019, 'https://drive.google.com/thumbnail?id=1ScgehHHpZoa6NBbcCgJqf0NL9w39ahh4', 'Live', 2),
+('Album 5', 2015, 'https://drive.google.com/thumbnail?id=1FExziigERVTzfSfnV3M5AJLmVmUSOium', 'Studio', 1),
+('Album 6', 2014, 'https://drive.google.com/thumbnail?id=1aX5YzZvQTw5gzzL_mwe4QaoU6_LaWMsR', 'Live', 3),
+('Album 7', 2016, 'https://drive.google.com/thumbnail?id=17a-J3DFrQv1BlNqiP4JlOnxrWGvwNjbU', 'Studio', 1),
+('Album 8', 2013, 'https://drive.google.com/thumbnail?id=1V85UQdujSfzp_eDWDdDI2F80qfCp9BSw', 'Live', 2),
+('Album 9', 2011, 'https://drive.google.com/thumbnail?id=1a7vN8cXPm26s1BwY0gs_lBxl3U0YBWVC', 'Studio', 3),
+('Album 10', 2012, 'https://drive.google.com/thumbnail?id=10w6dlGBV-OawgVWgPlitenudSVEH4dAA', 'Live', 1);
 
 -- Insertion de données dans la table ARTIST
 INSERT INTO "artist" ("firstname", "lastname", "nickname", "year", "city", "country", "description", "function", "url_image")
@@ -77,13 +77,13 @@ VALUES
 ('Track 1', 2022, 'https://i1.sndcdn.com/artworks-CsCv3OyH62pcGyyD-BHBhRg-t500x500.jpg', '/sound/KHF.mp3', 240, 'Dub', 1),
 ('Track 2', 2020, 'https://i1.sndcdn.com/artworks-f013fIIancUymIB9-W5QQbw-t500x500.jpg', '/sound/PNR.mp3', 180, 'Dub', 2),
 ('Track 3', 2023, 'https://i1.sndcdn.com/artworks-pXqzBDk5DrNOfXjJ-4rdJCQ-t500x500.jpg', '/sound/MSR.mp3', 210, 'Dub', 3),
-('Track 4', 2019, 'url_image_track_4', 'url_sound_track_4', 200, 'Blues', 1),
-('Track 5', 2015, 'url_image_track_5', 'url_sound_track_5', 220, 'Electronic', 2),
-('Track 6', 2014, 'url_image_track_6', 'url_sound_track_6', 190, 'Hip-Hop', 3),
-('Track 7', 2016, 'url_image_track_7', 'url_sound_track_7', 250, 'Reggae', 1),
-('Track 8', 2013, 'url_image_track_8', 'url_sound_track_8', 230, 'R&B', 2),
-('Track 9', 2011, 'url_image_track_9', 'url_sound_track_9', 260, 'Funk', 3),
-('Track 10', 2012, 'url_image_track_10', 'url_sound_track_10', 170, 'Soul', 1);
+('Track 4', 2019, 'https://drive.google.com/thumbnail?id=110NrlgPXHGHEjRNeh4pcInXJxLfo0n47', 'url_sound_track_4', 200, 'Blues', 1),
+('Track 5', 2015, 'https://drive.google.com/thumbnail?id=1Au1uXthpr9gsKc-uzQmNc2xZdvsNXTIN', 'url_sound_track_5', 220, 'Electronic', 2),
+('Track 6', 2014, 'https://drive.google.com/thumbnail?id=1UYNx5jWNapgB0xVgWYxv-XO7wEUv_pZg', 'url_sound_track_6', 190, 'Hip-Hop', 3),
+('Track 7', 2016, 'https://drive.google.com/thumbnail?id=1LvBuaPEcHsN7WjLmXByU-LS6zcXrz33-', 'url_sound_track_7', 250, 'Reggae', 1),
+('Track 8', 2013, 'https://drive.google.com/thumbnail?id=17U5dAyPNOzl-gL87WZIVsYNAjE-MKxMJ', 'url_sound_track_8', 230, 'R&B', 2),
+('Track 9', 2011, 'https://drive.google.com/thumbnail?id=1xyQB7aY_vPiFBdD4uN6o4u1YqQPvvZ-m', 'url_sound_track_9', 260, 'Funk', 3),
+('Track 10', 2012, 'https://drive.google.com/thumbnail?id=15L32nh8_aMoUj81okWJ8aaeRteJmTLAa', 'url_sound_track_10', 170, 'Soul', 1);
 
 -- Insertion de données dans la table USER_LIKE_TRACK
 INSERT INTO "user_like_track" ("user_id", "track_id")
