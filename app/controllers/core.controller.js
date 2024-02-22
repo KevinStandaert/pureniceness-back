@@ -1,4 +1,6 @@
 import ApiError from '../errors/api.error.js';
+import deleteFile from '../utils/delete.file.js';
+import extractDriveFileId from '../utils/extract.drive.id.js';
 import parseIntAndCompare from '../utils/parseint.compare.js';
 
 export default class Controller {
@@ -68,10 +70,28 @@ export default class Controller {
     const { role: userRole } = user;
     // admin can modify
     if (userRole === 'admin') {
+      const elementToDelete = await this.datamapper.findByPk(id);
+
       const deleted = await this.datamapper.delete(id);
+
       if (!deleted) {
         return next();
       }
+
+      const imageId = elementToDelete?.url_image
+        ? extractDriveFileId(elementToDelete.url_image)
+        : null;
+      if (imageId) {
+        deleteFile(imageId);
+      }
+
+      const soundId = elementToDelete?.url_sound
+        ? extractDriveFileId(elementToDelete.url_sound)
+        : null;
+      if (soundId) {
+        deleteFile(soundId);
+      }
+
       return res.status(204).json();
     }
     // user connected can modify only its infos
