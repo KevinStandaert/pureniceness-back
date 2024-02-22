@@ -1,19 +1,8 @@
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
-import { google } from 'googleapis';
-import { OAuth2Client } from 'google-auth-library';
 import * as metadata from 'music-metadata';
-
-const oAuth2Client = new OAuth2Client({
-  clientId: process.env.DRIVE_ID_CLIENT,
-  clientSecret: process.env.DRIVE_SECRET_CLIENT,
-  redirectUri: 'https://developers.google.com/oauthplayground',
-});
-
-oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
-// Utiliser le jeton d'accès pour accéder à Google Drive
-const drive = google.drive({ version: 'v3', auth: oAuth2Client });
+import drive from '../helpers/google.connexion.js';
 
 const storage = multer.diskStorage({
   destination(request, file, cb) {
