@@ -58,7 +58,7 @@ const uploadFile = (request, response, next) => {
         });
 
         if (driveResponse.status === 200) {
-          const fileUrl = `https://drive.google.com/uc?id=${driveResponse.data.id}`;
+          const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}`;
           if (file.mimetype.startsWith('image/')) {
             request.body.url_image = fileUrl;
             request.image = { id: driveResponse.data.id };
@@ -75,10 +75,6 @@ const uploadFile = (request, response, next) => {
                 fileId: driveResponse.data.id,
                 fields: 'webViewLink',
               });
-              // request.body.url_image = result.data.webViewLink;
-              // const responseTest = JSON.parse(result.data);
-              // const { webViewLink } = responseTest;
-              // console.log(webViewLink);
             } else {
               console.error('Erreur lors de la définition des autorisations pour l\'image.');
             }
