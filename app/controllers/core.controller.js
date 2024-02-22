@@ -35,11 +35,32 @@ export default class Controller {
       if (!dbData) {
         return next();
       }
+
       const data = { ...dbData, ...body };
+
       const row = await this.datamapper.update(data);
       if (!row) {
         return next();
       }
+
+      if (data.url_image !== dbData.url_image) {
+        const imageIdToDelete = dbData?.url_image
+          ? extractDriveFileId(dbData.url_image)
+          : null;
+        if (imageIdToDelete) {
+          deleteFile(imageIdToDelete);
+        }
+      }
+
+      if (data.url_sound !== dbData.url_sound) {
+        const soundIdToDelete = dbData?.url_sound
+          ? extractDriveFileId(dbData.url_sound)
+          : null;
+        if (soundIdToDelete) {
+          deleteFile(soundIdToDelete);
+        }
+      }
+
       return res.status(200).json(row);
     }
     // user connected can modify only its infos

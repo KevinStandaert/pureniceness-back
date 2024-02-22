@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
   filename(request, file, cb) {
     cb(
       null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`,
+      `${request.body.name}-${Date.now()}${path.extname(file.originalname)}`,
     );
   },
 });
@@ -28,6 +28,14 @@ const uploadFile = (request, response, next) => {
       delete request.body.url_image;
       delete request.body.url_sound;
       return next();
+    }
+
+    if (!request.body.url_image) {
+      delete request.body.url_image;
+    }
+
+    if (!request.body.url_sound) {
+      delete request.body.url_sound;
     }
 
     try {
