@@ -5,6 +5,7 @@ BEGIN;
 CREATE VIEW "user_link_with_track" AS
 SELECT
     "user"."id" AS "user_id",
+    "user_like_track"."track_id" AS "track_id",
     "track".*,
     "album"."name" AS "album_name",
     "album"."year" AS "album_year",

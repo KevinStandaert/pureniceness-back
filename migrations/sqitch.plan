@@ -15,5 +15,6 @@ label_album_view 2024-02-09T13:02:01Z Cedric Jardon <cedric.jardon@oclock.school
 track_with_artist 2024-02-09T13:59:41Z Kevin S. <kevin.standaert@gmail.com> # add view track_with_artist
 user_likes 2024-02-12T13:08:16Z Kevin S. <kevin.standaert@gmail.com> # add function for add ou delete likes
 user_link_with_track 2024-02-09T14:24:14Z Kevin S. <kevin.standaert@gmail.com> # add view connection between user and track
-
 album_tracks_view 2024-02-09T15:11:06Z Cedric Jardon <cedric.jardon@oclock.school> # View of JOIN tracks to album
+
+album_tracks_favorites_function 2024-02-22T14:16:20Z Cedric Jardon <cedric.jardon@oclock.school> # add function to get favorites of tracks

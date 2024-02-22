@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP FUNCTION "add_like";
+DROP FUNCTION IF EXISTS "add_like";
 
 COMMIT;

@@ -18,9 +18,15 @@ export default class AlbumDatamapper extends CoreDatamapper {
 
   static writeTableName = 'album';
 
-  // function to find one album with its tracks using the view "albums_with_tracks"
+  // function finding one album with tracks using the view "albums_with_tracks"
   static async findOneAlbumWithTracks(id) {
     const result = await client.query('SELECT * FROM "albums_with_tracks" WHERE "id" = $1', [id]);
     return result.rows[0];
+  }
+
+  // function finding one album with tracks using the function "albums_with_tracks_with_favorites"
+  static async findOneAlbumWithTracksWithFavorites(id, userId) {
+    const result = await client.query('SELECT * FROM "album_with_tracks_with_favorites"($1)', [parseInt(userId, 10)]);
+    return result.rows;
   }
 }
