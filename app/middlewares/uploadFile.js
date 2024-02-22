@@ -62,6 +62,26 @@ const uploadFile = (request, response, next) => {
           if (file.mimetype.startsWith('image/')) {
             request.body.url_image = fileUrl;
             request.image = { id: driveResponse.data.id };
+            const permissionResponse = await drive.permissions.create({
+              fileId: driveResponse.data.id,
+              requestBody: {
+                role: 'reader',
+                type: 'anyone',
+              },
+            });
+
+            if (permissionResponse && permissionResponse.status === 200) {
+              const result = await drive.files.get({
+                fileId: driveResponse.data.id,
+                fields: 'webViewLink',
+              });
+              // request.body.url_image = result.data.webViewLink;
+              // const responseTest = JSON.parse(result.data);
+              // const { webViewLink } = responseTest;
+              // console.log(webViewLink);
+            } else {
+              console.error('Erreur lors de la définition des autorisations pour l\'image.');
+            }
           } else if (file.mimetype.startsWith('audio/')) {
             const metadatas = await metadata.parseFile(filePath);
             request.body.duration = Math.ceil(metadatas.format.duration);
