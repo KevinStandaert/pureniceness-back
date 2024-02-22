@@ -5,12 +5,11 @@ POST {{endpoint}}/contact
 Content-Type: application/json
 
 {
-  "from": "jardon.c@free.fr",
-  "to": "jardon.c@free.fr",
-  "email": "user@user.com",
-  "description": "Bonjour, j'ai un soucis avec ma commande XYZ2024 qui n'est pas arrivée",
-  "subject": "Salut!",
-  "html": "Vous avez reçu un message de "
+  "from": "user@user.com",
+  "message": "Bonjour, j'ai un soucis avec ma commande XYZ2024 qui n'est pas arrivée",
+  "company": "",
+  "subject": "Salut!"
+  
 }
 
 ### error404 Not found
