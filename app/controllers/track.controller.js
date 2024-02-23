@@ -72,4 +72,19 @@ export default class TrackController extends CoreController {
     res.set('Content-Type', 'audio/mpeg');
     return audioContent.pipe(res);
   }
+
+  static async addArtist(req, res, next) {
+    const { body } = req;
+    const { id } = req.params;
+    body.track_id = id;
+    const artistAdded = await this.datamapper.addArtist(body);
+    if (!artistAdded) {
+      const err = new ApiError(
+        'Erreur lors de l\'ajout de l\'artiste au titre',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(200).json('Ajout de l\'artiste au titre réussi');
+  }
 }
