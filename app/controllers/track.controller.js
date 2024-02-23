@@ -22,6 +22,19 @@ export default class TrackController extends CoreController {
     return res.status(200).json(oneTrackWithArtists);
   }
 
+  static async getAllTracksWithArtists(req, res, next) {
+    const tracksWithArtists = await this.datamapper.findTracksWithArtists();
+
+    if (!tracksWithArtists) {
+      const err = new ApiError(
+        'Aucun titre trouvé',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(200).json(tracksWithArtists);
+  }
+
   static async addLike(req, res, next) {
     const { id } = req.params;
     const { userId } = req.user;
