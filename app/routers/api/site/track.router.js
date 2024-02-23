@@ -20,7 +20,7 @@ trackRouter.route('/')
 
 trackRouter.route('/:id(\\d+)')
 /**
-   * GET /api/albums/{id}
+   * GET /api/tracks/{id}
    * @summary Get a track by id
    * @tags Tracks
    * @param {number} id.path.required - track id
@@ -44,6 +44,19 @@ trackRouter.route('/:id(\\d+)/artists')
   */
   .get(
     controllerWrapper(trackController.getOneTrackWithArtists.bind(trackController)),
+  );
+
+trackRouter.route('/artists')
+/**
+   * GET /api/tracks/artists
+   * @summary Get tracks with artists
+   * @tags Tracks
+   * @return {Track} 200 - success response - application/json
+   * @return {ApiJsonError} 400 - Bad request response - application/json
+   * @return {ApiJsonError} 500 - Internal Server Error - application/json
+  */
+  .get(
+    controllerWrapper(trackController.getAllTracksWithArtists.bind(trackController)),
   );
 
 trackRouter.route('/:id(\\d+)/likes')
