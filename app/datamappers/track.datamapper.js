@@ -13,6 +13,11 @@ export default class TrackDatamapper extends CoreDatamapper {
     return result.rows[0];
   }
 
+  static async findTracksWithArtists() {
+    const result = await client.query('SELECT * FROM "track_with_artist"');
+    return result.rows;
+  }
+
   static async addLike(userId, trackId) {
     // Check if the user has already liked the track and if exist we delete the like
     const ifExist = await client.query('SELECT * FROM "user_like_track" WHERE user_id = $1 AND track_id = $2', [userId, trackId]);
