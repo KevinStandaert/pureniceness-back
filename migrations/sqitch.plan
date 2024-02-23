@@ -18,3 +18,4 @@ user_link_with_track 2024-02-09T14:24:14Z Kevin S. <kevin.standaert@gmail.com> #
 album_tracks_view 2024-02-09T15:11:06Z Cedric Jardon <cedric.jardon@oclock.school> # View of JOIN tracks to album
 
 album_tracks_favorites_function 2024-02-22T14:16:20Z Cedric Jardon <cedric.jardon@oclock.school> # add function to get favorites of tracks
+add_artist_to_track 2024-02-23T19:43:32Z Etudiant O'clock <student@teleporter> # function to add artist to track

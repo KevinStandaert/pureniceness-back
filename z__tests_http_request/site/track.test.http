@@ -13,7 +13,7 @@ GET {{endpoint}}/tracks/100
 GET {{endpoint}}/tracks/djobi
 
 ### get one Track with its artists
-GET {{endpoint}}/tracks/1/artists
+GET {{endpoint}}/tracks/artists
 
 ### error404 Not found
 GET {{endpoint}}/tracks/100/label

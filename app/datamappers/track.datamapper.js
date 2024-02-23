@@ -39,4 +39,16 @@ export default class TrackDatamapper extends CoreDatamapper {
     );
     return result.rows[0];
   }
+
+  static async addArtist(data) {
+    const ifExist = await client.query('SELECT * FROM "track_has_artist" WHERE track_id = $1 AND artist_id = $2', [data.track_id, data.artist_id]);
+    if (ifExist.rows.length > 0) {
+      return false;
+    }
+    const result = await client.query(
+      'SELECT * FROM "add_artist_to_track"($1)',
+      [data],
+    );
+    return result.rows[0];
+  }
 }
