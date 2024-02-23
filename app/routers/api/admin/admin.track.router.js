@@ -4,6 +4,7 @@ import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import trackCreateSchema from '../../../schemas/track.create.schema.js';
 import trackUpdateSchema from '../../../schemas/track.update.schema.js';
+import artistAddSchema from '../../../schemas/add.artist.track.schema.js';
 
 const adminTrackRouter = express.Router();
 
@@ -21,5 +22,11 @@ adminTrackRouter.route('/:id(\\d+)')
     controllerWrapper(trackController.update.bind(trackController)),
   )
   .delete(controllerWrapper(trackController.delete.bind(trackController)));
+
+adminTrackRouter.route('/:id(\\d+)/artists')
+  .post(
+    validationMiddleware('body', artistAddSchema),
+    controllerWrapper(trackController.addArtist.bind(trackController)),
+  );
 
 export default adminTrackRouter;
