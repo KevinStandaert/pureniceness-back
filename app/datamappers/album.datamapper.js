@@ -27,6 +27,6 @@ export default class AlbumDatamapper extends CoreDatamapper {
   // function finding one album with tracks using the function "albums_with_tracks_with_favorites"
   static async findOneAlbumWithTracksWithFavorites(id, userId) {
     const result = await client.query('SELECT * FROM "album_with_tracks_with_favorites"($1) WHERE "id"=$2', [userId, id]);
-    return result.rows;
+    return result.rows[0];
   }
 }
