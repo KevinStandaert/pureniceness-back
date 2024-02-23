@@ -17,7 +17,7 @@ async function mailer(datas) {
     });
     const datasToSend = datas;
     datasToSend.html = 'Vous avez recu un message de ';
-    datasToSend.to = 'kplwww@gmail.com';
+    datasToSend.to = process.env.MAILER_CONTACTMAIL;
     // if no error adding user email and the message description to datasToSend
     if (datas.type !== 'error') {
       datasToSend.html += `${datas.from}\n
