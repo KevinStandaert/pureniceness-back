@@ -35,6 +35,7 @@ CREATE OR REPLACE FUNCTION "update_track"(data json) RETURNS "track" AS $$
     "url_image" = COALESCE(data->>'url_image', "url_image"),
     "url_sound" = COALESCE(data->>'url_sound', "url_sound"),
     "duration" = COALESCE((data->>'duration')::int, "duration"),
+    "listening" = COALESCE((data->>'listening')::int, "listening"),
     "style" = COALESCE(data->>'style', "style"),
     "album_id" = COALESCE((data->>'album_id')::int, "album_id"),
     "updated_at" = now()
