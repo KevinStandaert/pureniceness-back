@@ -59,4 +59,17 @@ trackRouter.route('/:id(\\d+)/likes')
     authenticateToken,
     controllerWrapper(trackController.addLike.bind(trackController)),
   );
+
+trackRouter.route('/:id(\\d+)/audio')
+/**
+   * GET /api/tracks/{id}/audio
+   * @summary get audio for one track
+   * @tags Tracks
+   * @return {Track} 200 - success response - application/json
+   * @return {ApiJsonError} 400 - Bad request response - application/json
+   * @return {ApiJsonError} 500 - Internal Server Error - application/json
+  */
+  .get(
+    controllerWrapper(trackController.getAudio.bind(trackController)),
+  );
 export default trackRouter;
