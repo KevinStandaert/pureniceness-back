@@ -29,4 +29,9 @@ adminTrackRouter.route('/:id(\\d+)/artists')
     controllerWrapper(trackController.addArtist.bind(trackController)),
   );
 
+adminTrackRouter.route('/:trackId(\\d+)/artists/:artistId(\\d+)')
+  .delete(
+    controllerWrapper(trackController.removeArtist.bind(trackController)),
+  );
+
 export default adminTrackRouter;
