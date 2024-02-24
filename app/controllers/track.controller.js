@@ -87,4 +87,17 @@ export default class TrackController extends CoreController {
     }
     return res.status(200).json(artistAdded);
   }
+
+  static async removeArtist(req, res, next) {
+    const { trackId, artistId } = req.params;
+    const artistRemoved = await this.datamapper.removeArtist(trackId, artistId);
+    if (!artistRemoved) {
+      const err = new ApiError(
+        'Erreur lors de la suppression de l\'artiste au titre',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(204).json();
+  }
 }
