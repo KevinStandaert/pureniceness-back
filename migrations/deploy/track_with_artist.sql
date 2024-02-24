@@ -20,7 +20,7 @@ CREATE VIEW "track_with_artist" AS
             'url_image', "artist"."url_image",
             'role', "track_has_artist"."role",
             'order', "track_has_artist"."order"
-        ))
+        ) ORDER BY "track_has_artist"."order")
     END AS "artists"
 FROM "track"
 LEFT JOIN "track_has_artist" ON "track"."id" = "track_has_artist"."track_id"
