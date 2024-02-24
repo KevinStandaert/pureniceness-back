@@ -8,11 +8,13 @@ INSERT INTO "track_has_artist"
 (
 "track_id",
 "artist_id",
-"role"
+"role",
+"order"
 ) VALUES (
 (data->>'track_id')::int,
 (data->>'artist_id')::int,
-data->>'role'
+data->>'role',
+(data->>'order')::int
 ) RETURNING *;
 
 $$ LANGUAGE sql STRICT;
