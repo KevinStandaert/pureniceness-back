@@ -51,4 +51,9 @@ export default class TrackDatamapper extends CoreDatamapper {
     );
     return result.rows[0];
   }
+
+  static async removeArtist(trackId, artistId) {
+    const result = await client.query('DELETE FROM "track_has_artist" WHERE track_id = $1 AND artist_id = $2', [trackId, artistId]);
+    return !!result.rowCount;
+  }
 }
