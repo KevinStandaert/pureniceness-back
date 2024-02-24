@@ -85,6 +85,6 @@ export default class TrackController extends CoreController {
       );
       return next(err);
     }
-    return res.status(200).json('Ajout de l\'artiste au titre réussi');
+    return res.status(200).json(artistAdded);
   }
 }
