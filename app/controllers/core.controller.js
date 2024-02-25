@@ -1,6 +1,7 @@
 import ApiError from '../errors/api.error.js';
 import deleteFile from '../utils/delete.file.js';
 import extractDriveFileId from '../utils/extract.drive.id.js';
+import { formatDates, removePassword } from '../utils/formatdate.removepassword.js';
 import parseIntAndCompare from '../utils/parseint.compare.js';
 
 export default class Controller {
@@ -20,9 +21,14 @@ export default class Controller {
     return res.status(200).json(row);
   }
 
-  static async create({ body }, res) {
+  static async create({ body }, res, next) {
     const row = await this.datamapper.insert(body);
-    res.status(200).json(row);
+    if (!row) {
+      return next();
+    }
+    const dataWithoutPassword = removePassword(row);
+    const resultData = formatDates(dataWithoutPassword);
+    return res.status(200).json(resultData);
   }
 
   static async update({ params, body, user }, res, next) {
@@ -60,8 +66,8 @@ export default class Controller {
           deleteFile(soundIdToDelete);
         }
       }
-
-      return res.status(200).json(row);
+      const rowFormattedDate = formatDates(row);
+      return res.status(200).json(rowFormattedDate);
     }
     // user connected can modify only its infos
     // parsing and comparing the id and userId
@@ -82,7 +88,13 @@ export default class Controller {
     if (!row) {
       return next();
     }
-    return res.status(200).json(row);
+
+    if (row.password) {
+      delete row.password;
+    }
+
+    const rowFormattedDate = formatDates(row);
+    return res.status(200).json(rowFormattedDate);
   }
 
   static async delete({ params, user }, res, next) {
