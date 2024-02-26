@@ -58,7 +58,7 @@ const uploadFile = (request, response, next) => {
         });
 
         if (driveResponse.status === 200) {
-          const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}`;
+          const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}&sz=w1000`;
           if (file.mimetype.startsWith('image/')) {
             request.body.url_image = fileUrl;
             request.image = { id: driveResponse.data.id };
