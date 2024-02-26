@@ -58,8 +58,8 @@ const uploadFile = (request, response, next) => {
         });
 
         if (driveResponse.status === 200) {
-          const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}&sz=w1000`;
           if (file.mimetype.startsWith('image/')) {
+            const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}&sz=w1000`;
             request.body.url_image = fileUrl;
             request.image = { id: driveResponse.data.id };
             const permissionResponse = await drive.permissions.create({
@@ -79,6 +79,7 @@ const uploadFile = (request, response, next) => {
               console.error('Erreur lors de la définition des autorisations pour l\'image.');
             }
           } else if (file.mimetype.startsWith('audio/')) {
+            const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}`;
             const metadatas = await metadata.parseFile(filePath);
             request.body.duration = Math.ceil(metadatas.format.duration);
             request.body.url_sound = fileUrl;
