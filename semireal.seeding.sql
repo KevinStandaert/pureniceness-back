@@ -19,8 +19,10 @@ VALUES
 ('Youtube', 'https://www.youtube.com/@KingHiFiSoundSystemOfficial/featured', 1),
 ('Facebook', 'https://www.facebook.com/pure.niceness.records', 2),
 ('SoundCloud', 'https://soundcloud.com/purenicenessrecords', 2),
+('Bandcamp', 'https://pureniceness.bandcamp.com', 2),
 ('Facebook', 'https://www.facebook.com/mentalstamina', 3),
-('SoundCloud', 'https://soundcloud.com/mentalstaminarecords', 3);
+('SoundCloud', 'https://soundcloud.com/mentalstaminarecords', 3),
+('Bandcamp', 'https://mentalstaminarecords.bandcamp.com', 3);
 
 -- Insertion de données dans la table USER
 INSERT INTO "user" ("email", "password", "firstname", "lastname", "birthdate", "address", "zipcode", "city", "country", "role")
