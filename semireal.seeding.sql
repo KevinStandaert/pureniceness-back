@@ -74,16 +74,16 @@ VALUES
 -- Insertion de données dans la table TRACK
 INSERT INTO "track" ("name", "year", "url_image", "url_sound", "duration", "style", "album_id")
 VALUES
-('Track 1', 2022, 'https://i1.sndcdn.com/artworks-CsCv3OyH62pcGyyD-BHBhRg-t500x500.jpg', '/sound/KHF.mp3', 240, 'Dub', 1),
-('Track 2', 2020, 'https://i1.sndcdn.com/artworks-f013fIIancUymIB9-W5QQbw-t500x500.jpg', '/sound/PNR.mp3', 180, 'Dub', 2),
-('Track 3', 2023, 'https://i1.sndcdn.com/artworks-pXqzBDk5DrNOfXjJ-4rdJCQ-t500x500.jpg', '/sound/MSR.mp3', 210, 'Dub', 3),
-('Track 4', 2019, 'https://drive.google.com/thumbnail?id=110NrlgPXHGHEjRNeh4pcInXJxLfo0n47', 'url_sound_track_4', 200, 'Blues', 1),
-('Track 5', 2015, 'https://drive.google.com/thumbnail?id=1Au1uXthpr9gsKc-uzQmNc2xZdvsNXTIN', 'url_sound_track_5', 220, 'Electronic', 2),
-('Track 6', 2014, 'https://drive.google.com/thumbnail?id=1UYNx5jWNapgB0xVgWYxv-XO7wEUv_pZg', 'url_sound_track_6', 190, 'Hip-Hop', 3),
-('Track 7', 2016, 'https://drive.google.com/thumbnail?id=1LvBuaPEcHsN7WjLmXByU-LS6zcXrz33-', 'url_sound_track_7', 250, 'Reggae', 1),
-('Track 8', 2013, 'https://drive.google.com/thumbnail?id=17U5dAyPNOzl-gL87WZIVsYNAjE-MKxMJ', 'url_sound_track_8', 230, 'R&B', 2),
-('Track 9', 2011, 'https://drive.google.com/thumbnail?id=1xyQB7aY_vPiFBdD4uN6o4u1YqQPvvZ-m', 'url_sound_track_9', 260, 'Funk', 3),
-('Track 10', 2012, 'https://drive.google.com/thumbnail?id=15L32nh8_aMoUj81okWJ8aaeRteJmTLAa', 'url_sound_track_10', 170, 'Soul', 1);
+('Track 1', 2022, 'https://i1.sndcdn.com/artworks-CsCv3OyH62pcGyyD-BHBhRg-t500x500.jpg', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 240, 'Dub', 1),
+('Track 2', 2020, 'https://i1.sndcdn.com/artworks-f013fIIancUymIB9-W5QQbw-t500x500.jpg', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 180, 'Dub', 2),
+('Track 3', 2023, 'https://i1.sndcdn.com/artworks-pXqzBDk5DrNOfXjJ-4rdJCQ-t500x500.jpg', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 210, 'Dub', 3),
+('Track 4', 2019, 'https://drive.google.com/thumbnail?id=110NrlgPXHGHEjRNeh4pcInXJxLfo0n47', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 200, 'Blues', 1),
+('Track 5', 2015, 'https://drive.google.com/thumbnail?id=1Au1uXthpr9gsKc-uzQmNc2xZdvsNXTIN', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 220, 'Electronic', 2),
+('Track 6', 2014, 'https://drive.google.com/thumbnail?id=1UYNx5jWNapgB0xVgWYxv-XO7wEUv_pZg', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 190, 'Hip-Hop', 3),
+('Track 7', 2016, 'https://drive.google.com/thumbnail?id=1LvBuaPEcHsN7WjLmXByU-LS6zcXrz33-', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 250, 'Reggae', 1),
+('Track 8', 2013, 'https://drive.google.com/thumbnail?id=17U5dAyPNOzl-gL87WZIVsYNAjE-MKxMJ', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 230, 'R&B', 2),
+('Track 9', 2011, 'https://drive.google.com/thumbnail?id=1xyQB7aY_vPiFBdD4uN6o4u1YqQPvvZ-m', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 260, 'Funk', 3),
+('Track 10', 2012, 'https://drive.google.com/thumbnail?id=15L32nh8_aMoUj81okWJ8aaeRteJmTLAa', 'https://drive.google.com/thumbnail?id=11hOXNjjbdrbw0t3NjTXY-vo766mBKHm-', 170, 'Soul', 1);
 
 -- Insertion de données dans la table USER_LIKE_TRACK
 INSERT INTO "user_like_track" ("user_id", "track_id")
