@@ -32,16 +32,16 @@ VALUES
 -- Insertion de données dans la table EVENT
 INSERT INTO "event" ("name", "type", "description", "starting_date", "ending_date", "city", "country", "location", "url_image")
 VALUES
-('Event 1', 'Festival', 'Description de l''événement 1', '2024-07-01', '2024-07-03', 'Paris', 'France', 'Venue 1', 'https://drive.google.com/thumbnail?id=1Ko-k4AbFGHNipeAe0VZbpRgTnQye5zXA'),
-('Event 2', 'Concert', 'Description de l''événement 2', '2024-08-15', '2024-08-15', 'Berlin', 'Allemagne', 'Venue 2', 'https://drive.google.com/thumbnail?id=1BAxXIUGwXcAfl2Laofei27DG4Gf2wOUi'),
-('Event 3', 'Exposition', 'Description de l''événement 3', '2024-09-20', '2024-09-25', 'New York', 'USA', 'Venue 3', 'https://drive.google.com/thumbnail?id=1exlS0GwJ1PkWce522h10xdAzJj_aV6JP'),
-('Event 4', 'Conférence', 'Description de l''événement 4', '2024-10-10', '2024-10-10', 'London', 'UK', 'Venue 4', 'https://drive.google.com/thumbnail?id=1vVshD7cOAMwrA0HL6NqQm_e1HDBczf2P'),
-('Event 5', 'Spectacle', 'Description de l''événement 5', '2024-11-05', '2024-11-06', 'Tokyo', 'Japon', 'Venue 5', 'https://drive.google.com/thumbnail?id=1vYN2tjuYz7nN0kgIlsJTsop0Uoq9Nc45'),
-('Event 6', 'Festival', 'Description de l''événement 6', '2024-12-25', '2024-12-31', 'Moscow', 'Russie', 'Venue 6', 'https://drive.google.com/thumbnail?id=1GZ0HUqqHWm1rByKvuKulMzaA2YQsv5E9'),
-('Event 7', 'Concert', 'Description de l''événement 7', '2025-01-15', '2025-01-15', 'Sydney', 'Australie', 'Venue 7', 'https://drive.google.com/thumbnail?id=1KMvSQurb-3KqESQsR4VUuaAFDmoRUPcr'),
-('Event 8', 'Exposition', 'Description de l''événement 8', '2025-02-20', '2025-02-25', 'Rio de Janeiro', 'Brésil', 'Venue 8', 'https://drive.google.com/thumbnail?id=1iwPg9bQfyfvDj_TXhA3enTPU4ujv7SuF'),
-('Event 9', 'Conférence', 'Description de l''événement 9', '2025-03-10', '2025-03-10', 'Cape Town', 'Afrique du Sud', 'Venue 9', 'https://drive.google.com/thumbnail?id=1emWdScE5SjI5Cd0QlLAzpj5GrDvojj-p'),
-('Event 10', 'Spectacle', 'Description de l''événement 10', '2025-04-15', '2025-04-16', 'Toronto', 'Canada', 'Venue 10', 'https://drive.google.com/thumbnail?id=1kQYDglL-eNbCByXZueX0agjDMSovi94f');
+('Event 1', 'Festival', 'Description de l''événement 1', '2024-07-01', '2024-07-03', 'Paris', 'France', 'Venue 1', 'https://drive.google.com/thumbnail?id=1h2xwo7hzghQAEhQEGX_z0XAMSxSXEMDL&sz=w1000'),
+('Event 2', 'Concert', 'Description de l''événement 2', '2024-08-15', '2024-08-15', 'Berlin', 'Allemagne', 'Venue 2', 'https://drive.google.com/thumbnail?id=1bdp6f4Z8iKqhajx8HZfiYMk1ldcaXVnD&sz=w1000'),
+('Event 3', 'Exposition', 'Description de l''événement 3', '2024-09-20', '2024-09-25', 'New York', 'USA', 'Venue 3', 'https://drive.google.com/thumbnail?id=1-GcIxACiNOrjiNA4JsmyU8doYuB_3bUT&sz=w1000'),
+('Event 4', 'Conférence', 'Description de l''événement 4', '2024-10-10', '2024-10-10', 'London', 'UK', 'Venue 4', 'https://drive.google.com/thumbnail?id=1bCVdOFVrwlKd9uHRVW_3PE-baQYoxyma&sz=w1000'),
+('Event 5', 'Spectacle', 'Description de l''événement 5', '2024-11-05', '2024-11-06', 'Tokyo', 'Japon', 'Venue 5', 'https://drive.google.com/thumbnail?id=1CNbFSZWROwwdQ_6bJ6YCpLr2jje53-FB&sz=w1000'),
+('Event 6', 'Festival', 'Description de l''événement 6', '2024-12-25', '2024-12-31', 'Moscow', 'Russie', 'Venue 6', 'https://drive.google.com/thumbnail?id=1C7v8lPaLG0uB6BfQ2xq1_T80oFQpWyK2&sz=w1000'),
+('Event 7', 'Concert', 'Description de l''événement 7', '2025-01-15', '2025-01-15', 'Sydney', 'Australie', 'Venue 7', 'https://drive.google.com/thumbnail?id=1cpB6BqXXljKGl-MMagQJbhAfkWjyRSPb&sz=w1000'),
+('Event 8', 'Exposition', 'Description de l''événement 8', '2025-02-20', '2025-02-25', 'Rio de Janeiro', 'Brésil', 'Venue 8', 'https://drive.google.com/thumbnail?id=11W14NFROCZexFvaTHxNEGe6Hr6FOnVdQ&sz=w1000'),
+('Event 9', 'Conférence', 'Description de l''événement 9', '2025-03-10', '2025-03-10', 'Cape Town', 'Afrique du Sud', 'Venue 9', 'https://drive.google.com/thumbnail?id=1w_GvEGyZoPf0R7IRprkgWOye2PSOtMxg&sz=w1000'),
+('Event 10', 'Spectacle', 'Description de l''événement 10', '2025-04-15', '2025-04-16', 'Toronto', 'Canada', 'Venue 10', 'https://drive.google.com/thumbnail?id=1G7PN9Ymv1kpun1V6lwjhYPSyfdyIa8Nc&sz=w1000');
 
 -- Insertion de données dans la table ALBUM
 INSERT INTO "album" ("name", "year", "url_image", "type", "label_id")
