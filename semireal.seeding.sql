@@ -3,11 +3,34 @@ BEGIN;
 -- Insertion de données dans la table LABEL
 INSERT INTO "label" ("name", "year", "city", "country", "description", "url_image")
 VALUES
-('King Hi-Fi Sound System', 2010, 'Paris', 'France', 'King HiFi is a Sound System based in Lyon city, France. The King HiFi Family is the gathering of King HiFi (dOpeShack Selectah and Keryo Operatah) and the KPC, crew of youngproducers and deejay from Lyon city (Cooka, the riddim Chef, likkle ferguson and Ganka, the raggamuffin soldiers).
-Our selection ranges from the early 70’s roots revival niceness to the latest cosmic warrior steppers - and even reggae influenced dubstep mash-ups - through all digital and dubwise styles from the 80’s and 90’s. What we will play will essentially depend on the vibes and the sounds we play with. We play dubplates, specials, and our own production made on our label KPC and mixed by the mighty Crystal Mixage outta Paris City.', '/images/logo_khf.jpg'),
-('Pure Niceness Records', 2010, 'Paris', 'France', 'Our main mission is to promote Reggae and dUb music, but we would also like to support bass culture in general - dubstep, drum and bass, jungle, globalbass... - by allowing artists from these scenes to play on a system built for this purpose.
-So the first thing we do is organise our own events, playing strictly dubwise style and invinting special guests (other sound systems, singers…) to share the vibes with us. We are also ready to come and nice up your festivals and concerts with our sound system, selections and vibrations.
-On the other hand the system is up for hire if you want the required power, bass and sound quality for your party to be a success.', '/images/logo_pureniceness.jpeg'),
+('King Hi-Fi Sound System', 2010, 'Lyon', 'France', 'L’histoire commence en 2006 lorsque dOpeShack et Keryo partagent en plus de leur amitié une
+véritable passion pour la musique jamaïcaine. Ils décident naturellement de mettre leurs
+
+connaissances et bacs de vinyls en commun pour former leur propre sound en 2010, le King Hi-
+Fi.
+
+Construit artisanalement dans la tradition des Sound System Jamaïcains, le Sound System
+subira plusieurs évolutions pour proposer une écoute toujours plus qualitative et une expérience
+toujours immersive.
+Au fil des années et des collaborations, l’identité musicale du sound s’affirmera à travers des
+sélections Bass Music rendant hommage à toutes les facettes du reggae au sens large, depuis
+le Roots des années 70 au stepper guerrier et cosmique des années 3000, et particulièrement
+au UK Stepper et au Reggae Digital des 80’s.
+Le crew prend rapidement de l’ampleur avec l’arrivée des MC’s du KPC krew ( Cookah & Likkle
+Ferguson ) et de la Mystik Mountain Family (Teuteu, Vinz, DubToine, Moko, Kayass) comme
+nouveaux engineers, boxmen, selectors... et réunis aujourd’hui sous la bannière de la King Hi-Fi
+Family.', '/images/logo_khf.jpg'),
+('Pure Niceness Records', 2014, ' ', 'France', 'Fort des remontres avec des MCs et RiddimMakers avec qui ils ont partagé des danses, le
+sound lance son propre label en 2014, Pure Niceness Records, destiné à promouvoir artistes et
+producteurs émergeants de la scène Sound System internationale.
+L’identité du label est claire : des vibes Reggae Digital et Heavy Stepper
+Le label compte déjà plusieurs sorties vinyles et digital à son actif, avec des producteurs comme
+Danny T & Tradesman (UK), Iron Dubz (Genève), Bim One (Japon), Echo Roots (Suède) et des
+chanteurs internationaux comme Mr Williamz, Michael Prophet, Pad Anthony, Troy Berkley, Jah
+Screechy, Lasai ou Peppery.
+En construction, des projets avec Dub Machinist, Raggattack Bony Fly ou Brainless à la
+production et des artistes comme Michael Prophet, Echo Minott, Asher Senator ou Peter
+Youthman au micro.', '/images/logo_pureniceness.jpeg'),
 ('Mental Stamina Records', 2015, 'Paris', 'France', 'Côté label King Hi-Fi Sound System, petit frère de Pure Niceness Records.
 Des influences allant de l’Afrika Bambaataa à Jah Shaka', '/images/logo_mental_stamina.jpg');
 
@@ -27,9 +50,9 @@ VALUES
 -- Insertion de données dans la table USER
 INSERT INTO "user" ("email", "password", "firstname", "lastname", "birthdate", "address", "zipcode", "city", "country", "role")
 VALUES
-('ap@ap.fr', '$2b$10$XTV8HIHZW9whxIhEJlgCO.gcZKZktIHVNOe.8AkeKXs7mdiw3hEja', 'dfgdfg', 'dfgdfg', '1992-01-26', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'admin'),
-('u1@u1.fr', '$2b$10$Ap2zBu/SjjgL3.bk3glXZubGCHnEq04UfDDVPlwnV3b9a3qzOKhre', 'dfgdfg', 'dfgdfg', '1992-01-26', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'user'),
-('u2@u2.fr', '$2b$10$o8vggPTQbqTMS1vzDPALk.f24v4/BS99a7Vetfk2TwniupWRYxJXK', 'dfgdfg', 'dfgdfg', '1992-01-26', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'dfgdfg', 'user');
+('ap@ap.fr', '$2b$10$XTV8HIHZW9whxIhEJlgCO.gcZKZktIHVNOe.8AkeKXs7mdiw3hEja', 'admin', 'principal', '1985-01-26', 'ma maison', '01000', 'ma ville', 'mon pays', 'admin'),
+('u1@u1.fr', '$2b$10$Ap2zBu/SjjgL3.bk3glXZubGCHnEq04UfDDVPlwnV3b9a3qzOKhre', 'robert', 'dupond', '1950-05-05', '6 rue de la route', '91480', 'varennes-jarcy', 'france', 'user'),
+('u2@u2.fr', '$2b$10$o8vggPTQbqTMS1vzDPALk.f24v4/BS99a7Vetfk2TwniupWRYxJXK', 'juliette', 'lepetit', '2000-12-25', '15 route de la grande rue', '60250', 'balagny-sur-thérain', 'france', 'user');
 
 -- Insertion de données dans la table EVENT
 INSERT INTO "event" ("name", "type", "description", "starting_date", "ending_date", "city", "country", "location", "url_image")
