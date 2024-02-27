@@ -3,7 +3,7 @@ BEGIN;
 -- Insertion de données dans la table LABEL
 INSERT INTO "label" ("name", "year", "city", "country", "description", "url_image")
 VALUES
-('King Hi-Fi Sound System', 2010, 'Lyon', 'France', 'L\'histoire commence en 2006 lorsque dOpeShack et Keryo partagent en plus de leur amitié une
+('King Hi-Fi Sound System', 2010, 'Lyon', 'France', 'L’histoire commence en 2006 lorsque dOpeShack et Keryo partagent en plus de leur amitié une
 véritable passion pour la musique jamaïcaine. Ils décident naturellement de mettre leurs
 
 connaissances et bacs de vinyls en commun pour former leur propre sound en 2010, le King Hi-
@@ -12,13 +12,13 @@ Fi.
 Construit artisanalement dans la tradition des Sound System Jamaïcains, le Sound System
 subira plusieurs évolutions pour proposer une écoute toujours plus qualitative et une expérience
 toujours immersive.
-Au fil des années et des collaborations, l\'identité musicale du sound s\'affirmera à travers des
+Au fil des années et des collaborations, l’identité musicale du sound s’affirmera à travers des
 sélections Bass Music rendant hommage à toutes les facettes du reggae au sens large, depuis
 le Roots des années 70 au stepper guerrier et cosmique des années 3000, et particulièrement
-au UK Stepper et au Reggae Digital des 80\'s.
-Le crew prend rapidement de l\'ampleur avec l\'arrivée des MC\'s du KPC krew ( Cookah & Likkle
+au UK Stepper et au Reggae Digital des 80’s.
+Le crew prend rapidement de l’ampleur avec l’arrivée des MC’s du KPC krew ( Cookah & Likkle
 Ferguson ) et de la Mystik Mountain Family (Teuteu, Vinz, DubToine, Moko, Kayass) comme
-nouveaux engineers, boxmen, selectors... et réunis aujourd\'hui sous la bannière de la King Hi-Fi
+nouveaux engineers, boxmen, selectors... et réunis aujourd’hui sous la bannière de la King Hi-Fi
 Family.', '/images/logo_khf.jpg'),
 ('Pure Niceness Records', 2014, ' ', 'France', 'Fort des remontres avec des MCs et RiddimMakers avec qui ils ont partagé des danses, le
 sound lance son propre label en 2014, Pure Niceness Records, destiné à promouvoir artistes et
