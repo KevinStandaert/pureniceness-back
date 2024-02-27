@@ -1,0 +1,49 @@
+@endpoint=http://localhost:4000/api/admin
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo
+
+
+### Get All socials
+GET {{endpoint}}/socials
+{{token}}
+
+### Add one social
+POST {{endpoint}}/socials
+{{token}}
+Content-Type: application/json
+
+{
+  "name": "TicToc",
+  "url": "http://tiktok.com",
+  "label_id": 3
+  
+}
+
+
+### Get one social
+GET {{endpoint}}/socials/11
+{{token}}
+
+### Modify one social
+PATCH {{endpoint}}/socials/5
+{{token}}
+Content-Type: application/json
+
+{
+  "name": "meetic",
+  "label_id": 1
+  
+}
+
+### Delete one social
+DELETE {{endpoint}}/socials/6
+{{token}}
+
+### Error token
+GET {{endpoint}}/socials
+
+
+
+
+### signout
+GET {{endpoint}}/auth/signout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFkbWluQHRlc3QuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzgyNTkyNCwiZXhwIjoxNzA4NDMwNzI0fQ.HFt-fMJ_y78BGuSnKxhPgZmsgItjHiN-pXEbiQRUGMo

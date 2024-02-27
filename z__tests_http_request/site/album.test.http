@@ -1,0 +1,28 @@
+@endpoint=http://localhost:4000/api
+
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoidTFAdTEuZnIiLCJmaXJzdG5hbWUiOiJkZmdkZmciLCJsYXN0bmFtZSI6ImRmZ2RmZyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA4NjIwODk3LCJleHAiOjE3MDkyMjU2OTd9.c3elaOshmSkeKpeBOifDAWZn0UsQ08330JanFhmHYRU
+
+### get all Albums
+GET {{endpoint}}/albums
+
+### get one Album by id
+GET {{endpoint}}/albums/2
+
+### error404 Not found
+GET {{endpoint}}/albums/100
+
+### get one Album with its tracks
+GET {{endpoint}}/albums/1/tracks
+
+### error404 Not found
+GET {{endpoint}}/albums/100/toto
+
+### error404 Not found
+GET {{endpoint}}/albums/100/tracks
+
+### get one Album with tracks
+GET {{endpoint}}/albums/1/tracks
+
+### get one Album with tracks and likes
+GET {{endpoint}}/albums/1/tracks/likes
+{{token}}

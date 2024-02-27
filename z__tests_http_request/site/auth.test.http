@@ -1,0 +1,34 @@
+@endpoint=http://localhost:4000/api
+
+### signin
+POST {{endpoint}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "u1@u1.fr",
+  "password": "12341234"
+}
+
+### signup
+POST {{endpoint}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "testt@test.fr",
+  "password": "12341234",
+  "passwordConfirm": "12341234",
+  "firstname": "dfgdfg",
+  "lastname": "dfgdfg",
+  "birthdate": "1992-01-26",
+  "address": "dfgdfg",
+  "zipcode": "dgdfg",
+  "city": "dfgdg",
+  "country": "dgdfg"
+}
+
+### signout
+GET {{endpoint}}/auth/signout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6InRlc3RAdGVzdC5mciIsImZpcnN0bmFtZSI6ImRmZ2RmZyIsImxhc3RuYW1lIjoiZGZnZGZnIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA3NDkyMzE1LCJleHAiOjE3MDgwOTcxMTV9._xC4omaMda0fCz1rfHEPz59YzlsG8GuzOU6BJDgARDM
+### test admin
+GET {{endpoint}}/admin/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6InRlc3RAdGVzdC5mciIsImZpcnN0bmFtZSI6ImRmZ2RmZyIsImxhc3RuYW1lIjoiZGZnZGZnIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA3NDg2NzYyLCJleHAiOjE3MDgwOTE1NjJ9.1JnvIoyDbNYqgNRjGsevXs5y3f0RpRHQlgV92axd4PI

@@ -1,0 +1,31 @@
+@endpoint=http://localhost:4000/api
+
+### get all Labels
+GET {{endpoint}}/labels
+
+### get one Label by id
+GET {{endpoint}}/labels/1
+
+### error404 Not found
+GET {{endpoint}}/labels/10058
+
+### get all labels with their albums
+GET {{endpoint}}/labels/albums
+
+### error404 Not found
+GET {{endpoint}}/labels/albums/toto
+
+### get one label with its albums
+GET {{endpoint}}/labels/1/albums
+
+### error404 Not found
+GET {{endpoint}}/labels/1/toto
+
+### get one label with its socials
+GET {{endpoint}}/labels/1/socials
+
+### error404 Not found
+GET {{endpoint}}/labels/1000/socials
+
+### get all labels with their socials
+GET {{endpoint}}/labels/socials

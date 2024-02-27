@@ -1,0 +1,16 @@
+@endpoint=http://localhost:4000/api
+
+### get all events
+GET {{endpoint}}/events
+
+### get event by id
+GET {{endpoint}}/events/2
+
+### error404 Not Found
+GET {{endpoint}}/events/100
+
+### error404 Not Found
+GET {{endpoint}}/events/10000
+
+### error404 Not Found
+GET {{endpoint}}/events/toto
