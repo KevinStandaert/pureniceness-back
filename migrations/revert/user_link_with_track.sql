@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP VIEW "user_link_with_track";
+DROP VIEW IF EXISTS "user_link_with_track";
 
 COMMIT;

@@ -1,6 +1,7 @@
 import express from 'express';
 import albumController from '../../../controllers/album.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
+import authenticateToken from '../../../middlewares/authenticate.token.js';
 
 const albumRouter = express.Router();
 
@@ -44,6 +45,21 @@ albumRouter
   */
   .get(
     controllerWrapper(albumController.getOneAlbumWithTracks.bind(albumController)),
+  );
+
+albumRouter
+  .route('/:id(\\d+)/tracks/likes')
+  /**
+   * GET /api/albums/{id}/tracks/likes
+   * @summary Get all tracks of one album with likes
+   * @tags Albums
+   * @return {Album} 200 - success response - application/json
+   * @return {ApiJsonError} 400 - Bad request response - application/json
+   * @return {ApiJsonError} 500 - Internal Server Error - application/json
+  */
+  .get(
+    authenticateToken,
+    controllerWrapper(albumController.getOneAlbumWithTracksWithFavorites.bind(albumController)),
   );
 
 export default albumRouter;

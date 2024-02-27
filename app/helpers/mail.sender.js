@@ -8,7 +8,7 @@ async function mailer(datas) {
     const transporter = nodemailer.createTransport({
       // intitialization of host, user and password of the "do not reply mail" (GLOBALCONTACTMAIL)
       host: process.env.MAILER_GLOBALHOST,
-      port: 465,
+      port: process.env.MAILER_PORT,
       secure: true,
       auth: {
         user: process.env.MAILER_GLOBALCONTACTMAIL,
@@ -16,9 +16,13 @@ async function mailer(datas) {
       },
     });
     const datasToSend = datas;
+    datasToSend.html = 'Vous avez recu un message de ';
+    datasToSend.to = process.env.MAILER_CONTACTMAIL;
     // if no error adding user email and the message description to datasToSend
     if (datas.type !== 'error') {
-      datasToSend.html += `${datas.email}\n${datas.description}`;
+      datasToSend.html += `${datas.from}\n
+      de l'entreprise: ${datas.company}\n
+      ${datas.message}`;
     }
     // calling nodeMailer sendMail() method with datas
     const emailSend = await transporter.sendMail(datasToSend);

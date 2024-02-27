@@ -18,7 +18,7 @@ const createArtistSchema = Joi.object({
     .error(new Error('La description de l\'artiste est requise et doit être une chaîne de caractères')),
   function: Joi.string().required()
     .error(new Error('La fonction de l\'artiste est requise et doit être une chaîne de caractères')),
-  url_image: Joi.string().uri().required()
+  url_image: Joi.string().required()
     .error(new Error('L\'URL de l\'image de l\'artiste est requise et doit être une URI valide')),
 });
 

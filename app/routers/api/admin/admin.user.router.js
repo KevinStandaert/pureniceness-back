@@ -1,5 +1,6 @@
 import express from 'express';
 import userController from '../../../controllers/user.controller.js';
+import authController from '../../../controllers/auth.controller.js';
 import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import userCreateSchema from '../../../schemas/user.create.schema.js';
@@ -28,7 +29,7 @@ adminUserRouter.route('/')
    */
   .post(
     validationMiddleware('body', userCreateSchema),
-    controllerWrapper(userController.create.bind(userController)),
+    controllerWrapper(authController.postSignup),
   );
 
 adminUserRouter.route('/:id(\\d+)')

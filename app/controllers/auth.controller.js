@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import userDatamapper from '../datamappers/user.datamapper.js';
 import tokenDatamapper from '../datamappers/token.datamapper.js';
 import ApiError from '../errors/api.error.js';
-import userController from './user.controller.js';
+import { formatDates } from '../utils/formatdate.removepassword.js';
 
 export default class AuthController {
   static datamapper = userDatamapper;
@@ -121,6 +121,10 @@ export default class AuthController {
       );
       return next(err);
     }
-    return res.status(201).json({ user: userCreated });
+    if (userCreated.password) {
+      delete userCreated.password;
+    }
+    const userFormattedDate = formatDates(userCreated);
+    return res.status(201).json(userFormattedDate);
   }
 }

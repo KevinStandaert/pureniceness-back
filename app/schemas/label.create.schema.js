@@ -13,7 +13,7 @@ const createLabelSchema = Joi.object({
   description: Joi.string().required()
     .error(new Error('Une description du label est requise et doit être une chaîne de caractères')),
   url_image: Joi.string().required()
-    .error(new Error('L\'URL de l\'image est requise et doit être une url')),
+    .error(new Error('L\'URL de l\'image du label est requise et doit être une URI valide')),
 });
 
 export default createLabelSchema;

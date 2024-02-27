@@ -6,7 +6,7 @@ const createAlbumSchema = Joi.object({
   year: Joi.number().integer().min(1000).max(9999)
     .required()
     .error(new Error('L\'année de sortie de l\'album est requise et doit être au format YYYY')),
-  url_image: Joi.string().uri().required()
+  url_image: Joi.string().required()
     .error(new Error('L\'URL de l\'image de l\'album est requise et doit être une URI valide')),
   type: Joi.string().required()
     .error(new Error('Le type de l\'album est requis et doit être une chaîne de caractères')),
