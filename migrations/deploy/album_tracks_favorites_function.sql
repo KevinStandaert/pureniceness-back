@@ -19,8 +19,11 @@ CREATE TYPE "album_with_tracks" AS (
 CREATE OR REPLACE FUNCTION "album_with_tracks_with_favorites"(INT) RETURNS SETOF "album_with_tracks" AS $$
   SELECT
     "album".*,
-    json_agg(
-      json_build_object(
+    COALESCE(json_agg(track_data), '[]'::json) AS "tracks"
+FROM
+    "album"
+LEFT JOIN LATERAL (
+    SELECT json_build_object(
         'id', "track"."id",
         'name', "track"."name",
         'year', "track"."year",
@@ -32,15 +35,13 @@ CREATE OR REPLACE FUNCTION "album_with_tracks_with_favorites"(INT) RETURNS SETOF
         'album_id', "track"."album_id",
         'created_at', "track"."created_at",
         'updated_at', "track"."updated_at",
-        'liked', (SELECT EXISTS (SELECT 1 FROM "user_link_with_track" WHERE "user_id" = $1 AND "id" = "track"."id")
-      ))
-    ) AS "tracks"
-    FROM
-        "album"
-    LEFT JOIN
-        "track" ON "album"."id" = "track"."album_id"
-    GROUP BY
-        "album"."id";
+        'liked', EXISTS (SELECT 1 FROM "user_link_with_track" WHERE "user_id" = $1 AND "id" = "track"."id")
+    ) AS track_data
+    FROM "track"
+    WHERE "album"."id" = "track"."album_id"
+) AS track_data ON TRUE
+GROUP BY
+    "album"."id";
 
 $$ LANGUAGE SQL STRICT;
 COMMIT;

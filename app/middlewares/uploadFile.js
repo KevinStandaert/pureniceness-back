@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import * as metadata from 'music-metadata';
 import drive from '../helpers/google.connexion.js';
+import cloudinary from '../helpers/cloudinary.connexion.js';
 
 const storage = multer.diskStorage({
   destination(request, file, cb) {
@@ -17,6 +18,13 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+const options = {
+  use_filename: true,
+  unique_filename: false,
+  overwrite: true,
+  resource_type: 'image',
+};
 
 const uploadFile = (request, response, next) => {
   upload.any()(request, response, async (err) => {
@@ -40,51 +48,60 @@ const uploadFile = (request, response, next) => {
 
     try {
       const { files } = request;
-      const folderId = process.env.DRIVE_ID;
+      const driveFolderId = process.env.DRIVE_ID;
 
       const uploadPromises = files.map(async (file) => {
         const filePath = file.path;
         const fileStream = fs.createReadStream(filePath);
 
-        const driveResponse = await drive.files.create({
-          requestBody: {
-            name: file.filename,
-            parents: [folderId],
-          },
-          media: {
-            mimeType: file.mimetype,
-            body: fileStream,
-          },
-        });
+        if (file.mimetype.startsWith('audio/')) {
+          const driveResponse = await drive.files.create({
+            requestBody: {
+              name: file.filename,
+              parents: [driveFolderId],
+            },
+            media: {
+              mimeType: file.mimetype,
+              body: fileStream,
+            },
+          });
 
-        if (driveResponse.status === 200) {
-          if (file.mimetype.startsWith('image/')) {
-            const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}&sz=w1000`;
-            request.body.url_image = fileUrl;
-            request.image = { id: driveResponse.data.id };
-            const permissionResponse = await drive.permissions.create({
-              fileId: driveResponse.data.id,
-              requestBody: {
-                role: 'reader',
-                type: 'anyone',
-              },
-            });
+          if (driveResponse.status === 200) {
+            // if (file.mimetype.startsWith('image/')) {
+            //   const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}&sz=w1000`;
+            //   request.body.url_image = fileUrl;
+            //   request.image = { id: driveResponse.data.id };
+            //   const permissionResponse = await drive.permissions.create({
+            //     fileId: driveResponse.data.id,
+            //     requestBody: {
+            //       role: 'reader',
+            //       type: 'anyone',
+            //     },
+            //   });
 
-            if (permissionResponse && permissionResponse.status === 200) {
-              const result = await drive.files.get({
-                fileId: driveResponse.data.id,
-                fields: 'webViewLink',
-              });
-            } else {
-              console.error('Erreur lors de la définition des autorisations pour l\'image.');
-            }
-          } else if (file.mimetype.startsWith('audio/')) {
+            //   if (permissionResponse && permissionResponse.status === 200) {
+            //     const result = await drive.files.get({
+            //       fileId: driveResponse.data.id,
+            //       fields: 'webViewLink',
+            //     });
+            //   } else {
+            //     console.error('Erreur lors de la définition des autorisations pour l\'image.');
+            //   }
+            // } else if (file.mimetype.startsWith('audio/')) {
             const fileUrl = `https://drive.google.com/thumbnail?id=${driveResponse.data.id}`;
             const metadatas = await metadata.parseFile(filePath);
             request.body.duration = Math.ceil(metadatas.format.duration);
             request.body.url_sound = fileUrl;
             request.sound = { id: driveResponse.data.id };
           }
+        }
+
+        if (file.mimetype.startsWith('image/')) {
+          const result = await cloudinary.uploader.upload(filePath, options);
+          if (!result.url) {
+            throw new Error('Erreur lors de l\'upload de l\'image');
+          }
+          request.body.url_image = result.url;
         }
 
         fs.unlinkSync(filePath);

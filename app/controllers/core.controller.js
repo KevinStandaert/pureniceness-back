@@ -1,5 +1,7 @@
 import ApiError from '../errors/api.error.js';
+import deleteCloudinaryFile from '../utils/delete.cloudinary.js';
 import deleteFile from '../utils/delete.file.js';
+import extractCloudinaryFileId from '../utils/extract.cloudinary.id.js';
 import extractDriveFileId from '../utils/extract.drive.id.js';
 import { formatDates, removePassword } from '../utils/formatdate.removepassword.js';
 import parseIntAndCompare from '../utils/parseint.compare.js';
@@ -51,10 +53,10 @@ export default class Controller {
 
       if (data.url_image !== dbData.url_image) {
         const imageIdToDelete = dbData?.url_image
-          ? extractDriveFileId(dbData.url_image)
+          ? extractCloudinaryFileId(dbData.url_image)
           : null;
         if (imageIdToDelete) {
-          deleteFile(imageIdToDelete);
+          deleteCloudinaryFile(imageIdToDelete);
         }
       }
 
@@ -112,10 +114,10 @@ export default class Controller {
       }
 
       const imageId = elementToDelete?.url_image
-        ? extractDriveFileId(elementToDelete.url_image)
+        ? extractCloudinaryFileId(elementToDelete.url_image)
         : null;
       if (imageId) {
-        deleteFile(imageId);
+        deleteCloudinaryFile(imageId);
       }
 
       const soundId = elementToDelete?.url_sound
