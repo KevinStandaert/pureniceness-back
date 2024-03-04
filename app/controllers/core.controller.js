@@ -145,4 +145,18 @@ export default class Controller {
     }
     return res.status(204).json();
   }
+
+  static async updateOrders(req, res, next) {
+    const { id } = req.params;
+    const { orders } = req.body;
+    const ordersUpdated = await this.datamapper.ordered(id, orders);
+    if (!ordersUpdated) {
+      const err = new ApiError(
+        'Erreur lors de la mise à jour de l\'ordre',
+        { httpStatus: 404 },
+      );
+      return next(err);
+    }
+    return res.status(200).json('Ordre mis à jour avec succès');
+  }
 }
