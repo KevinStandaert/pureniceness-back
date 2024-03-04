@@ -10,6 +10,7 @@ CREATE TYPE "album_with_tracks" AS (
     "url_image" TEXT,
     "type" TEXT,
     "label_id" INT,
+    "role" INT,
     "created_at" TIMESTAMPTZ,
     "updated_at" TIMESTAMPTZ,
     "tracks" JSONB

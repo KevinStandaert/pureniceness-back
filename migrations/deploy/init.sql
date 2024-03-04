@@ -65,6 +65,7 @@ CREATE TABLE "album" (
     "year" INT NOT NULL,
     "url_image" TEXT NOT NULL,
     "type" TEXT NOT NULL,
+    "order" INT NOT NULL DEFAULT 0,
     "label_id" int NOT NULL REFERENCES "label"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
@@ -97,6 +98,7 @@ CREATE TABLE "track" (
     "listening" INT NOT NULL DEFAULT 0,
     "duration" INT NOT NULL,
     "style" TEXT NOT NULL DEFAULT 'dub',
+    "order" INT NOT NULL DEFAULT 0,
     "album_id" INT NOT NULL REFERENCES "album"("id") ON DELETE CASCADE,
     "created_at" timestamptz NOT NULL DEFAULT now(),
     "updated_at" timestamptz
