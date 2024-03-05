@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const updateAlbumssOrderSchema = Joi.object().keys({
+const updateOrdersSchema = Joi.object().keys({
   orders: Joi.array().items(
     Joi.object({
       id: Joi.number().integer().positive().required()
@@ -10,4 +10,4 @@ const updateAlbumssOrderSchema = Joi.object().keys({
     .error(new Error('L\'ordre doit contenir au moins un élément')),
 });
 
-export default updateAlbumssOrderSchema;
+export default updateOrdersSchema;
