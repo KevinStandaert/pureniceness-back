@@ -6,7 +6,7 @@ BEGIN;
 CREATE OR REPLACE VIEW "albums_with_tracks" AS
   SELECT
     "album".*,
-    json_agg("track".*) AS "tracks"
+    json_agg("track".* ORDER BY "track".order) AS "tracks"
   FROM "album"
   LEFT JOIN "track" ON "album".id = "track".album_id
   GROUP BY "album".id;
