@@ -4,6 +4,7 @@ import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import albumCreateSchema from '../../../schemas/album.create.schema.js';
 import albumUpdateSchema from '../../../schemas/album.update.schema.js';
+import updateOrdersSchema from '../../../schemas/order.update.js';
 
 const adminAlbumRouter = express.Router();
 
@@ -21,5 +22,11 @@ adminAlbumRouter.route('/:id(\\d+)')
     controllerWrapper(albumController.update.bind(albumController)),
   )
   .delete(controllerWrapper(albumController.delete.bind(albumController)));
+
+adminAlbumRouter.route('/:id(\\d+)/tracks/orders')
+  .patch(
+    validationMiddleware('body', updateOrdersSchema),
+    controllerWrapper(albumController.updateOrders.bind(albumController)),
+  );
 
 export default adminAlbumRouter;
