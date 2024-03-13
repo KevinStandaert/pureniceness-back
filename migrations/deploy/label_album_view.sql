@@ -5,7 +5,7 @@ BEGIN;
 CREATE OR REPLACE VIEW "labels_with_albums" AS
   SELECT
     "label".*,
-    json_agg("album".*) AS "albums"
+    json_agg("album".* ORDER BY "album".order) AS "albums"
   FROM "label"
   LEFT JOIN "album" ON "label".id = "album".label_id
   GROUP BY "label".id;

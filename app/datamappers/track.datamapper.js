@@ -41,7 +41,7 @@ export default class TrackDatamapper extends CoreDatamapper {
   }
 
   static async addArtist(data) {
-    const ifExist = await client.query('SELECT * FROM "track_has_artist" WHERE track_id = $1 AND artist_id = $2', [data.track_id, data.artist_id]);
+    const ifExist = await client.query('SELECT * FROM "track_has_artist" WHERE "track_id" = $1 AND "artist_id" = $2', [data.track_id, data.artist_id]);
     if (ifExist.rows.length > 0) {
       return false;
     }
@@ -53,13 +53,13 @@ export default class TrackDatamapper extends CoreDatamapper {
   }
 
   static async removeArtist(trackId, artistId) {
-    const result = await client.query('DELETE FROM "track_has_artist" WHERE track_id = $1 AND artist_id = $2', [trackId, artistId]);
+    const result = await client.query('DELETE FROM "track_has_artist" WHERE "track_id" = $1 AND "artist_id" = $2', [trackId, artistId]);
     return !!result.rowCount;
   }
 
   static async orderedArtists(trackId, orderList) {
     // Initialize the SQL update query
-    let updateQuery = 'UPDATE track_has_artist SET "order" = CASE ';
+    let updateQuery = 'UPDATE "track_has_artist" SET "order" = CASE ';
 
     // Initialize arrays to hold placeholders and values for the query
     const placeholders = [];
@@ -75,14 +75,14 @@ export default class TrackDatamapper extends CoreDatamapper {
     // Iterate over the order list to construct the "WHEN" clauses for the SQL update query
     orderList.forEach((artistId, index) => {
       const whenIndex = index * 2 + 1;
-      updateQuery += `WHEN artist_id = $${whenIndex} AND track_id = $${orderList.length * 2 + 1} THEN $${whenIndex + 1} `;
+      updateQuery += `WHEN "artist_id" = $${whenIndex} AND "track_id" = $${orderList.length * 2 + 1} THEN $${whenIndex + 1} `;
     });
 
     // Add the "ELSE" and "END" parts of the SQL update query
     updateQuery += 'ELSE "order" END ';
 
     // Construct the "WHERE" clause for the SQL update query
-    updateQuery += `WHERE track_id = $${orderList.length * 2 + 1}`;
+    updateQuery += `WHERE "track_id" = $${orderList.length * 2 + 1}`;
 
     // Add the trackId to the values array
     values.push(parseInt(trackId, 10));

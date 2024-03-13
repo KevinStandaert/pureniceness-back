@@ -20,6 +20,8 @@ export default class LabelDatamapper extends CoreDatamapper {
 
   static writeTableName = 'label';
 
+  static orderedTableName = 'album';
+
   // Function to find all labels with all their albums using the view "labels_with_albums"
   static async findAllLabelsWithAlbums() {
     const result = await client.query('SELECT * FROM "labels_with_albums"');

@@ -10,6 +10,7 @@ CREATE TYPE "album_with_tracks" AS (
     "url_image" TEXT,
     "type" TEXT,
     "label_id" INT,
+    "role" INT,
     "created_at" TIMESTAMPTZ,
     "updated_at" TIMESTAMPTZ,
     "tracks" JSONB
@@ -19,7 +20,7 @@ CREATE TYPE "album_with_tracks" AS (
 CREATE OR REPLACE FUNCTION "album_with_tracks_with_favorites"(INT) RETURNS SETOF "album_with_tracks" AS $$
   SELECT
     "album".*,
-    COALESCE(json_agg(track_data), '[]'::json) AS "tracks"
+    COALESCE(json_agg(track_data ORDER BY track_data->>'order'), '[]'::json) AS "tracks"
 FROM
     "album"
 LEFT JOIN LATERAL (
@@ -33,6 +34,7 @@ LEFT JOIN LATERAL (
         'duration', "track"."duration",
         'style', "track"."style",
         'album_id', "track"."album_id",
+        'order', "track"."order",
         'created_at', "track"."created_at",
         'updated_at', "track"."updated_at",
         'liked', EXISTS (SELECT 1 FROM "user_link_with_track" WHERE "user_id" = $1 AND "id" = "track"."id")

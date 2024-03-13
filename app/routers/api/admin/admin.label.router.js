@@ -4,6 +4,7 @@ import controllerWrapper from '../../../helpers/controller.wrapper.js';
 import validationMiddleware from '../../../middlewares/validation.middleware.js';
 import labelCreateSchema from '../../../schemas/label.create.schema.js';
 import labelUpdateSchema from '../../../schemas/label.update.schema.js';
+import updateOrdersSchema from '../../../schemas/order.update.js';
 
 const adminLabelRouter = express.Router();
 
@@ -21,5 +22,11 @@ adminLabelRouter.route('/:id(\\d+)')
     controllerWrapper(labelController.update.bind(labelController)),
   )
   .delete(controllerWrapper(labelController.delete.bind(labelController)));
+
+adminLabelRouter.route('/:id(\\d+)/albums/orders')
+  .patch(
+    validationMiddleware('body', updateOrdersSchema),
+    controllerWrapper(labelController.updateOrders.bind(labelController)),
+  );
 
 export default adminLabelRouter;
