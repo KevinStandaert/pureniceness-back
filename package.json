@@ -10,8 +10,7 @@
   "scripts": {
     "db:reset": "sqitch revert -y; sqitch deploy; psql -d pureniceness -f semireal.seeding.sql*",
     "dev": "DEBUG=app:* npx nodemon",
-    "start": "npm i",
-    "run": "node index.js"
+    "start": "npm i; node index.js"
   },
   "keywords": [],
   "author": "",
