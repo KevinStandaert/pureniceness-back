@@ -24,6 +24,7 @@ const options = {
   unique_filename: false,
   overwrite: true,
   resource_type: 'image',
+  format: 'webp',
 };
 
 const uploadFile = (request, response, next) => {
@@ -98,10 +99,10 @@ const uploadFile = (request, response, next) => {
 
         if (file.mimetype.startsWith('image/')) {
           const result = await cloudinary.uploader.upload(filePath, options);
-          if (!result.url) {
+          if (!result.secure_url) {
             throw new Error('Erreur lors de l\'upload de l\'image');
           }
-          request.body.url_image = result.url;
+          request.body.url_image = result.secure_url;
         }
 
         fs.unlinkSync(filePath);
