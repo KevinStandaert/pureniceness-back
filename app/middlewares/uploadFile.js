@@ -25,9 +25,20 @@ const options = {
   overwrite: true,
   resource_type: 'image',
   format: 'webp',
+  secure: true,
 };
 
 const uploadFile = (request, response, next) => {
+  if (request.url.includes('/api/admin/albums') || request.url.includes('/api/admin/tracks') || request.url.includes('/api/admin/artists')) {
+    options.transformation = {
+      width: 200,
+      height: 200,
+      crop: 'fill',
+    };
+  } else {
+    delete options.transformation;
+  }
+
   upload.any()(request, response, async (err) => {
     if (err) {
       return response.status(400).json('Erreur lors de la récupération du fichier.');
