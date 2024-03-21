@@ -1,4 +1,5 @@
 import CoreDatamapper from './core.datamapper.js';
+import client from '../helpers/pg.client.js';
 
 /**
  * @typedef {object} Event
@@ -22,7 +23,7 @@ export default class EventDatamapper extends CoreDatamapper {
 
   static async findAll() {
     const result = await client.query(`SELECT * FROM "${this.readTableName}" ORDER BY "starting_date" ASC`);
-    
+   
     return result.rows;
   }
 }
