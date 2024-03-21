@@ -10,7 +10,7 @@ export default class CoreDatamapper {
   static orderedTableName;
 
   static async findAll() {
-    const result = await client.query(`SELECT * FROM "${this.readTableName}"`);
+    const result = await client.query(`SELECT * FROM "${this.readTableName}" ORDER BY "id"`);
     const resultWithoutPassword = result.rows.map(({ password, ...rest }) => rest);
     const modifiedData = resultWithoutPassword.map((row) => {
       const dataWithoutPassword = removePassword(row);
