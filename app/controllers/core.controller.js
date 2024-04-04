@@ -30,7 +30,7 @@ export default class Controller {
     }
     const dataWithoutPassword = removePassword(row);
     const resultData = formatDates(dataWithoutPassword);
-    return res.status(200).json(resultData);
+    return res.status(201).json(resultData);
   }
 
   static async update({ params, body, user }, res, next) {
