@@ -24,9 +24,21 @@ const options = {
   unique_filename: false,
   overwrite: true,
   resource_type: 'image',
+  format: 'webp',
+  secure: true,
 };
 
 const uploadFile = (request, response, next) => {
+  if (request.url.includes('/api/admin/albums') || request.url.includes('/api/admin/tracks') || request.url.includes('/api/admin/artists')) {
+    options.transformation = {
+      width: 200,
+      height: 200,
+      crop: 'fill',
+    };
+  } else {
+    delete options.transformation;
+  }
+
   upload.any()(request, response, async (err) => {
     if (err) {
       return response.status(400).json('Erreur lors de la récupération du fichier.');
@@ -98,10 +110,10 @@ const uploadFile = (request, response, next) => {
 
         if (file.mimetype.startsWith('image/')) {
           const result = await cloudinary.uploader.upload(filePath, options);
-          if (!result.url) {
+          if (!result.secure_url) {
             throw new Error('Erreur lors de l\'upload de l\'image');
           }
-          request.body.url_image = result.url;
+          request.body.url_image = result.secure_url;
         }
 
         fs.unlinkSync(filePath);

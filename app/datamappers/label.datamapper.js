@@ -41,7 +41,7 @@ export default class LabelDatamapper extends CoreDatamapper {
   }
 
   static async findAllLabelsWithSocials() {
-    const result = await client.query('SELECT * FROM "labels_with_socials"');
+    const result = await client.query('SELECT * FROM "labels_with_socials" ORDER BY "id" ASC');
     return result.rows;
   }
 }
